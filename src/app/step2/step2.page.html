@@ -1,0 +1,55 @@
+<ion-content (ionChange)="vercambios()">
+  <div class="section">
+    <h3>Color primario</h3>
+    <div class="color-options">
+      <div *ngFor="let color of popularColors" [style.background]="color" class="color-box"
+           [class.selected]="selectedPrimary === color"
+           (click)="selectColor('primary', color)">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Color secundario</h3>
+    <div class="color-options">
+      <div *ngFor="let color of popularColors" [style.background]="color" class="color-box"
+           [class.selected]="selectedSecondary === color"
+           (click)="selectColor('secondary', color)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Mostrar nombre si es válido -->
+  <div *ngIf="mostrarNombre && nombre_del_que_cumple"
+       class="ion-text-center"
+       style="font-family: 'visible'; font-size: 100px;">
+    {{ nombre_del_que_cumple }}
+  </div>
+</ion-content>
+
+<ion-footer style="background: rgb(233, 233, 233);">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-checkbox #el_check_nombre
+        labelPlacement="end"
+        class="checkbox_con_bordes personalizado"
+        [checked]="mostrarNombre"
+        (ionChange)="se_clickeo_check($event)">
+        Mostrar Nombre
+      </ion-checkbox>
+      
+        
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" fill="outline" (click)="goBack()">Atrás</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" shape="round" (click)="goToStep3()">Siguiente</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

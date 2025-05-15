@@ -1,0 +1,37 @@
+<div (click)="goToStep3()"
+     style="position:absolute; top:1rem; right:1rem; z-index:99; cursor:pointer; width:3rem; height:3rem; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.2); border-radius:50%;">
+  <span style="color:white; font-size:2rem; font-weight:bold;">×</span>
+</div>
+
+<img style="position:absolute; height: 100%; width:100%;  z-index:2" src="assets/animacion4/pedasito.png">
+
+<img style="position:absolute; max-height: 100%; width:100%;  z-index:3" src="assets/animacion4/aroanimacion4.gif">
+
+
+
+<h1 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad ocultar_celulares" 
+style="z-index:4; margin-top:-10px; font-family: hellokartinaregular;     font-size:106px;">{{ storageService.data['Age'] }}
+
+</h1>
+
+<h1 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad22 ocultar_tablet ocultar_computadora"
+ style="z-index:4; margin-top:6px; font-family: hellokartinaregular;     font-size:96px; " >{{ storageService.data['Age'] }}</h1>
+
+
+
+
+<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
+
+<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+
+
+<!-- <h2  class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;">Happy<br> Birthday</h2> -->
+
+
+
+<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
+
+<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+
+
+

@@ -1,0 +1,43 @@
+.age-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+
+  ion-select {
+    width: 140px;
+    text-align: center;
+  }
+
+  ion-button {
+    --border-radius: 50%;
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+}
+
+.language-buttons {
+  margin-top: 20px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+
+  .language-button {
+    font-size: 18px;
+    height: 50px;
+    transition: all 0.3s ease;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    &.ion-color-primary {
+      --background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      color: #fff;
+    }
+
+    &.ion-color-medium {
+      --background: #f4f4f4;
+      color: #333;
+    }
+  }
+}

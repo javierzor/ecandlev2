@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>eCandle</ion-title>
+  </ion-toolbar>
+
+  
+  <ion-fab-button (click)="this.storageService.compartir()" style="position:absolute; top:3px; right:4px;z-index: 222;">
+    <ion-icon name="share-social"> </ion-icon>
+  </ion-fab-button>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <h2>¿Cuántos años cumple?</h2>
+
+  <div class="age-selector">
+    <ion-button (click)="decreaseAge()" fill="outline" shape="round">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+
+    <ion-select [(ngModel)]="selectedAge" interface="popover" (ionChange)="onAgeChange()">
+      <ion-select-option *ngFor="let age of ages" [value]="age">
+        {{ age }} años
+      </ion-select-option>
+    </ion-select>
+
+    <ion-button (click)="increaseAge()" fill="outline" shape="round">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <ion-textarea *ngIf="selectedAge<1" disabled="true" disabled readonly="true" readonly>
+    Haz seleccionado 0 años "Baby Shower" por lo que autoconfiguraremos el nombre del bebe para que lo puedas mostrar en el proximo
+    paso.
+  </ion-textarea>
+
+
+  <ng-container *ngIf="selectedAge>9">
+    <ion-list>
+
+    <ion-radio-group [(ngModel)]="maskType" (ionChange)="updateMaskedAge()">
+      <ion-list-header>
+        <ion-label>Opciones de privacidad</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Mostrar todo ({{ getMaskedAge('none') }})</ion-label>
+        <ion-radio slot="start" value="none"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Ocultar decena ({{ getMaskedAge('hide-decade') }})</ion-label>
+        <ion-radio slot="start" value="hide-decade"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Ocultar unidad ({{ getMaskedAge('hide-unit') }})</ion-label>
+        <ion-radio slot="start" value="hide-unit"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+
+  </ng-container>
+
+
+  <h2>¿En qué idioma será la celebración?</h2>
+  <div class="language-buttons">
+    <ion-button *ngFor="let lang of languages" [color]="selectedLanguage === lang.code ? 'primary' : 'medium'"
+      (click)="selectLanguage(lang.code)" expand="block" shape="round" class="language-button">
+      {{ lang.label }}
+    </ion-button>
+  </div>
+
+  <ion-button expand="block" shape="round" (click)="goToStep2()">
+    Siguiente
+  </ion-button>
+</ion-content>

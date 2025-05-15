@@ -1,0 +1,35 @@
+<ion-content fullscreen [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'">
+
+  <ion-fab-button (click)="irapaso1()" size="small" style="padding:0; position:absolute;top:2px;left:2px;z-index: 22;" color="transparent">
+    <ion-icon size="small" name="close"></ion-icon>
+  </ion-fab-button>
+
+  <!-- <div id="lottie-container" style="width: 100%; height: 100%;"></div> -->
+
+  <div *ngIf="this.storageService.data['animacion_seleccionada']==='1'" [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'">
+    <app-animacionunocomp [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'"  ></app-animacionunocomp>
+  </div>
+
+
+  <div  *ngIf="this.storageService.data['animacion_seleccionada']==='2'"  [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'">
+    <app-animaciondoscomp [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'" ></app-animaciondoscomp> 
+  </div>
+
+
+  <div [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'" *ngIf="this.storageService.data['animacion_seleccionada']==='3'">
+    <app-animaciontrescomp ></app-animaciontrescomp>
+  </div>
+
+
+  <div [style.backgroundColor]="storageService.data['secondaryColor'] ? storageService.data['secondaryColor']: 'lightgray'" *ngIf="this.storageService.data['animacion_seleccionada']==='4'">
+    <app-animacioncuatrocomp ></app-animacioncuatrocomp>
+  </div>
+
+
+
+  <!-- <div class="animation-container" [innerHTML]="finalAnimation"></div> -->
+  <!-- 
+  <ion-button expand="block" color="medium" (click)="goBack()">
+    🔁 Cambiar animación
+  </ion-button> -->
+</ion-content>

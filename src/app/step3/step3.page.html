@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="atras()" fill="outline">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+        Volver
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="selectAnimation()" fill="outline">
+        Continuar
+        <ion-icon slot="end" name="arrow-redo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seleccionar animación:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" (click)="seleccionar_animacion('1')" [ngClass]="{'seleccionada': seleccionada === '1'}">
+        <div style="width:50vw; height:20vw">
+          <div style="width:50vw; height:20vw" class="ocultar_celulares">
+            <app-animacionunocomp style="zoom:0.3" [style.backgroundColor]="storageService.data['secondaryColor'] || 'lightgray'"></app-animacionunocomp>
+          </div>
+          <div style="width:50vw; height:20vw" class="ocultar_tablet ocultar_computadora">
+            <app-animacionunocomp style="zoom:0.1" [style.backgroundColor]="storageService.data['secondaryColor'] || 'lightgray'"></app-animacionunocomp>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="6" (click)="seleccionar_animacion('2')" [ngClass]="{'seleccionada': seleccionada === '2'}">
+        <div style="width:50vw; height:20vw">
+          <app-animaciondoscomp style="zoom:0.3" [style.backgroundColor]="storageService.data['secondaryColor'] || 'lightgray'"></app-animaciondoscomp>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6" (click)="seleccionar_animacion('3')" [ngClass]="{'seleccionada': seleccionada === '3'}">
+        <div style="width:50vw; height:20vw" class="ocultar_celulares">
+          <app-animaciontrescomp style="zoom:0.3"></app-animaciontrescomp>
+        </div>
+        <div style="width:50vw; height:20vw" class="ocultar_tablet ocultar_computadora">
+          <app-animaciontrescomp style="zoom:0.2"></app-animaciontrescomp>
+        </div>
+      </ion-col>
+
+      <ion-col size="6" (click)="seleccionar_animacion('4')" [ngClass]="{'seleccionada': seleccionada === '4'}">
+        <div style="width:50vw; height:20vw" class="ocultar_celulares">
+          <app-animacioncuatrocomp style="zoom:0.3"></app-animacioncuatrocomp>
+        </div>
+        <div style="width:50vw; height:20vw" class="ocultar_tablet ocultar_computadora">
+          <app-animacioncuatrocomp style="zoom:0.1"></app-animacioncuatrocomp>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

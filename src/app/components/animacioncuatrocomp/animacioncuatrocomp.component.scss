@@ -1,0 +1,75 @@
+body{
+    background-color: black;
+    background: black;
+}
+
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  .textoedad {
+    position: absolute;
+    top: 36%;
+    left: 49%;
+    transform: translate(-49%, -46%);
+  }
+
+
+  
+  .textoedad22 {
+    position: absolute;
+    top: 42%;
+    left: 49%;
+    transform: translate(-45%, -46%);
+  }
+
+    
+  .textoedad33 {
+    font-size:49px;
+    position: absolute;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -46%);
+  }
+
+
+  .textoedad44 {
+    font-size:1.3rem;
+    position: absolute;
+    top: 51%;
+    left: 49%;
+    transform: translate(-51%, -46%);
+  }
+
+  
+  .textoedad55 {
+    font-size:1.3rem;
+    position: absolute;
+    bottom: 4vh;
+    right: 36%;
+
+  }
+
+
+  .textoedad66 {
+    font-size:2rem;
+    position: absolute;
+    bottom: 4vh;
+    right: 39%;
+
+  }
+
+  .contenedor-animacion {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+  }
+  
