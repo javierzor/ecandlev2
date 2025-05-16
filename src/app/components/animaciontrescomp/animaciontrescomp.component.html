@@ -138,9 +138,13 @@
   </div>
 </div>
 
-<h1 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" style=" text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); font-size:10rem;position:absolute; bottom:2rem;
-   right:2rem; font-family:betteryou!important;z-index:9; font-weight: bold;">
-  {{this.storageService.data['cached_nombre_del_que_cumple']}}</h1>
+
+<ng-container  *ngIf="storageService.data['cached_ocultar_nombre']==='no'">
+
+  <h1 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" style=" text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); font-size:10rem;position:absolute; bottom:2rem;
+     right:2rem; font-family:betteryou!important;z-index:9; font-weight: bold;">
+    {{this.storageService.data['cached_nombre_del_que_cumple']}}</h1>
+</ng-container>
 
 
 <img

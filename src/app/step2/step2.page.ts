@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonCheckbox, IonContent } from '@ionic/angular';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-step2',
@@ -10,7 +11,6 @@ import { AlertController, IonCheckbox, IonContent } from '@ionic/angular';
 })
 export class Step2Page {
   @ViewChild(IonContent, { static: true, read: ElementRef }) content!: ElementRef;
-  @ViewChild('el_check_nombre', { static: true }) check_en_html!: IonCheckbox;
 
   popularColors = ['#FF5733', '#33C1FF', '#FFD700', '#8E44AD', '#28B463', '#F39C12', '#1ABC9C', '#E74C3C'];
 
@@ -21,7 +21,7 @@ export class Step2Page {
   mostrarNombre: boolean = false;
   nombre_del_que_cumple: string = '';
 
-  constructor(private router: Router, private alertController: AlertController) { }
+  constructor(private router: Router, private alertController: AlertController, public storageService: StorageService) { }
 
   ngAfterViewInit() {
     const observer = new MutationObserver((mutations) => {
@@ -37,41 +37,56 @@ export class Step2Page {
   }
 
   ionViewWillEnter() {
-    const savedValue = localStorage.getItem('cached_ocultar_nombre');
-    this.mostrarNombre = savedValue === 'si';
-    if(savedValue==='si'){
-      this.mostrarNombre=false;
+    this.storageService.loadCache();
+
+    const here_cached_ocultar_nombre = localStorage.getItem('cached_ocultar_nombre');
+    // this.mostrarNombre = savedValue === 'si';
+    if (here_cached_ocultar_nombre === 'si') {
+
+      this.mostrarNombre = false;
+
+
     }
-    else{
-      this.mostrarNombre=true;
+    else {
+      console.log('this.storageService.data["Age"] ',this.storageService.data['Age'] )
+      if (this.storageService.data['Age'] < 1) {
+        this.mostrarNombre = false;
+
+      } else {
+        this.mostrarNombre = true;
+
+      }
+
+
+
     }
-  
+
     const cachedName = localStorage.getItem('cached_nombre_del_que_cumple');
     if (cachedName) {
       this.nombre_del_que_cumple = cachedName;
     }
-  
+
     // Restaurar colores guardados si existen
     const bgColor = localStorage.getItem('backgroundColor');
     const primary = localStorage.getItem('primaryColor');
     const secondary = localStorage.getItem('secondaryColor');
-  
+
     if (bgColor) this.selectedBackground = bgColor;
     if (primary) this.selectedPrimary = primary;
     if (secondary) this.selectedSecondary = secondary;
   }
-  
+
 
   selectColor(type: 'background' | 'primary' | 'secondary', color: string) {
     if (type === 'background') this.selectedBackground = color;
     if (type === 'primary') this.selectedPrimary = color;
     if (type === 'secondary') this.selectedSecondary = color;
-  
+
     // Guardar inmediatamente en localStorage al seleccionar un color
     localStorage.setItem('backgroundColor', this.selectedBackground);
     localStorage.setItem('primaryColor', this.selectedPrimary);
     localStorage.setItem('secondaryColor', this.selectedSecondary);
-  
+
     // También puedes llamar vercambios si quieres detectar la acción
     this.vercambios();
   }
@@ -141,7 +156,7 @@ export class Step2Page {
       this.mostrarNombre = false;
       localStorage.setItem('cached_ocultar_nombre', 'si');
       this.nombre_del_que_cumple = '';
-      this.check_en_html.checked = false;
+      // this.check_en_html.checked = false;
 
 
     }
@@ -167,6 +182,17 @@ export class Step2Page {
     else {
       console.log('abre alerta');
       this.onCheckboxClicked(event);
+    }
+
+  }
+
+  togglenuevo() {
+    if (this.mostrarNombre) {
+
+      localStorage.setItem('cached_ocultar_nombre', 'no');
+    }
+    else {
+      localStorage.setItem('cached_ocultar_nombre', 'si');
     }
 
   }

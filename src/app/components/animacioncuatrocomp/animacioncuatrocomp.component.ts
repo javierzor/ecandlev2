@@ -11,16 +11,21 @@ import { NavController } from '@ionic/angular';
   imports: [CommonModule], // Add IonContent to imports
 
 })
-export class AnimacioncuatrocompComponent  implements OnInit {
+export class AnimacioncuatrocompComponent implements OnInit {
 
-  constructor( public storageService: StorageService,     private router: Router,    private navCtrl: NavController,
+  constructor(public storageService: StorageService, private router: Router, private navCtrl: NavController,
 
   ) { }
 
-  ngOnInit() {}
+  ionViewWillEnter() {
+    this.storageService.loadCache();
+
+  }
+
+  ngOnInit() { }
 
 
-  goToStep3(){
+  goToStep3() {
     this.router.navigate([`home`]);
 
   }

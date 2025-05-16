@@ -18,20 +18,49 @@ style="z-index:4; margin-top:-10px; font-family: hellokartinaregular;     font-s
  style="z-index:4; margin-top:6px; font-family: hellokartinaregular;     font-size:96px; " >{{ storageService.data['Age'] }}</h1>
 
 
+<ng-container *ngIf="storageService.data['Age']>0">
 
 
-<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
 
-<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+  
+  
+  <!-- <h2  class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;">Happy<br> Birthday</h2> -->
+  
+  
+  
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
+  
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+  
+  
+  
+  
 
 
-<!-- <h2  class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;">Happy<br> Birthday</h2> -->
+</ng-container>
 
 
-
-<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Feliz<br> Cumpleaños</h2>
-
-<h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Happy<br> Birthday</h2>
+<ng-container *ngIf="storageService.data['Age']<1">
 
 
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Baby<br> Shower</h2>
+
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad33 ocultar_celulares" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Baby<br> Shower</h2>
+  
+  
+  <!-- <h2  class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;">Happy<br> Birthday</h2> -->
+  
+  
+  
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora"  style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='es'">Baby<br> Shower</h2>
+  
+  <h2 [style.color]="storageService.data['primaryColor'] ? storageService.data['primaryColor'] : 'orange'" class="textoedad44 ocultar_tablet ocultar_computadora" style="z-index:5; font-family: visible;"  *ngIf="storageService.data['lang_siglas']=='en'" >Baby<br> Shower</h2>
+  
+  
+  
+
+
+</ng-container>
 

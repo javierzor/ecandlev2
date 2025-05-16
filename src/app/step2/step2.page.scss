@@ -83,3 +83,56 @@
     transform: scale(1.05);
   }
   
+
+  // estilos nuevos:
+
+  .toggle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .toggle-label {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--ion-color-dark);
+    }
+  
+    ion-toggle.custom-toggle {
+      --handle-width: 20px;
+      --handle-height: 20px;
+      --track-width: 50px;
+      --track-height: 24px;
+      --handle-background: white;
+      --handle-border-radius: 50%;
+      --track-background: #ccc;
+      --track-background-checked: var(--ion-color-success);
+      --transition: all 0.3s ease-in-out;
+    }
+  }
+  
+  ion-input.custom-input {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --border-radius: 10px;
+    --border: 1px solid #ccc;
+    --background: white;
+    --highlight-color-focused: var(--ion-color-primary);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  
+    &:focus-within {
+      border-color: var(--ion-color-primary);
+      box-shadow: 0 0 6px var(--ion-color-primary);
+    }
+  
+    &.input-disabled {
+      opacity: 0.6;
+    }
+  }
+  
+  // estilos nuevos de campos
