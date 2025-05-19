@@ -38,7 +38,7 @@
 
       <ion-col size="6" class="ion-text-center">
         <ion-input style="color:blue"
-          [(ngModel)]="nombre_del_que_cumple"
+          [(ngModel)]="nombre_del_que_cumple" (ionChange)="cambio_nombre()" (ionInput)="cambio_nombre()"
           class="custom-input"
           placeholder="Nombre del cumpleañero"
           [disabled]="!mostrarNombre"

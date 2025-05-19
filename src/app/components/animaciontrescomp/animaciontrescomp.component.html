@@ -12,7 +12,7 @@
 
 
 <!-- Please typing your favorite word!-->
-<ng-container *ngIf="storageService.data['Age']>0">
+<ng-container *ngIf="storageService.data['realAge']>0">
 
 
   <ng-container *ngIf="storageService.data['lang_siglas']=='en'">
@@ -84,7 +84,7 @@
 
 </ng-container>
 
-<ng-container *ngIf="storageService.data['Age']<1">
+<ng-container *ngIf="storageService.data['realAge']<1">
 
   
   <div id="ui" style="position:absolute;z-index:7; left:20vw; bottom:50%">

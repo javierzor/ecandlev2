@@ -15,7 +15,7 @@ export class Step3Page {
   age = localStorage.getItem('age') || '00';
   color1 = localStorage.getItem('color1') || '#ff4081';
   color2 = localStorage.getItem('color2') || '#3f51b5';
-  seleccionada: string = localStorage.getItem('animacion_seleccionada') || '';
+  seleccionada: string = localStorage.getItem('animacion_seleccionada') || '1';
 
   constructor(
     private navCtrl: NavController,
@@ -38,6 +38,8 @@ export class Step3Page {
   }
 
   selectAnimation() {
+    localStorage.setItem('animacion_seleccionada', this.seleccionada);
+
     this.navCtrl.navigateForward('/step4');
   }
 

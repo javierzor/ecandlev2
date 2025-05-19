@@ -48,7 +48,7 @@ export class Step2Page {
 
     }
     else {
-      console.log('this.storageService.data["Age"] ',this.storageService.data['Age'] )
+      console.log('this.storageService.data["Age"] ', this.storageService.data['Age'])
       if (this.storageService.data['Age'] < 1) {
         this.mostrarNombre = false;
 
@@ -95,6 +95,8 @@ export class Step2Page {
     localStorage.setItem('backgroundColor', this.selectedBackground);
     localStorage.setItem('primaryColor', this.selectedPrimary);
     localStorage.setItem('secondaryColor', this.selectedSecondary);
+    this.togglenuevo();
+    this.cambio_nombre();
     this.router.navigate(['/step3']);
   }
 
@@ -194,6 +196,31 @@ export class Step2Page {
     else {
       localStorage.setItem('cached_ocultar_nombre', 'si');
     }
+
+  }
+
+  cambio_nombre() {
+    var nombre = this.nombre_del_que_cumple;
+    const longitud = nombre?.length || 0;
+
+    if (longitud >= 3 && longitud <= 11) {
+      this.nombre_del_que_cumple = nombre;
+      this.mostrarNombre = true;
+      localStorage.setItem('cached_ocultar_nombre', 'no');
+      localStorage.setItem('cached_nombre_del_que_cumple', nombre);
+
+    
+
+    }
+  
+    else{
+      localStorage.setItem('cached_nombre_del_que_cumple', '');
+      localStorage.setItem('cached_ocultar_nombre', 'si');
+
+  }
+
+
+
 
   }
 
