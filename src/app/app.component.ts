@@ -16,29 +16,9 @@ export class AppComponent {
     private platform: Platform,
 
   ) {
-    this.bloquearLandscape();
 
   }
 
-  bloquearLandscape() {
-    // Solo intentar cambiar orientación si es Android o iOS
-    if (
-      Capacitor.getPlatform() === 'android' ||
-      Capacitor.getPlatform() === 'ios'
-    ) {
-      this.platform.ready().then(() => {
-        try {
-          this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE)
-            .then(() => console.log('Orientación bloqueada a horizontal'))
-            .catch(err => console.warn('No se pudo bloquear orientación:', err));
-        } catch (e) {
-          console.warn('Error en orientación:', e);
-        }
-      });
-    } else {
-      console.log('Orientación no forzada: estamos en navegador');
-    }
-  }
 
   cambio_la_app() {
     this.storageService.loadCache();

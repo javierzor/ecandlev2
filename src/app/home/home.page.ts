@@ -81,9 +81,9 @@ export class HomePage {
   getMaskedAge(mask: 'none' | 'hide-decade' | 'hide-unit'): string {
     const age = this.realAge;
     if (mask === 'hide-decade') {
-      return '#' + (age % 10); // 42 → #2
+      return '?' + (age % 10); // 42 → #2
     } else if (mask === 'hide-unit') {
-      return Math.floor(age / 10).toString() + '#'; // 42 → 4#
+      return Math.floor(age / 10).toString() + '?'; // 42 → 4#
     }
     return age.toString(); // Mostrar completo
   }

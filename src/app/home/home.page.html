@@ -34,10 +34,20 @@
   <ion-textarea *ngIf="selectedAge<1" disabled="true" disabled readonly="true" readonly>
     Haz seleccionado 0 años "Baby Shower" por lo que autoconfiguraremos el nombre del bebe para que lo puedas mostrar en el proximo
     paso.
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
   </ion-textarea>
 
 
   <ng-container *ngIf="selectedAge>9">
+
     <ion-list>
 
     <ion-radio-group [(ngModel)]="maskType" (ionChange)="updateMaskedAge()">
@@ -45,17 +55,17 @@
         <ion-label>Opciones de privacidad</ion-label>
       </ion-list-header>
 
-      <ion-item>
+      <ion-item (click)="maskType='none'; updateMaskedAge()">
         <ion-label>Mostrar todo ({{ getMaskedAge('none') }})</ion-label>
         <ion-radio slot="start" value="none"></ion-radio>
       </ion-item>
 
-      <ion-item>
+      <!-- <ion-item (click)="maskType='hide-decade' ; updateMaskedAge()">
         <ion-label>Ocultar decena ({{ getMaskedAge('hide-decade') }})</ion-label>
         <ion-radio slot="start" value="hide-decade"></ion-radio>
-      </ion-item>
+      </ion-item> -->
 
-      <ion-item>
+      <ion-item (click)="maskType='hide-unit' ; updateMaskedAge()">
         <ion-label>Ocultar unidad ({{ getMaskedAge('hide-unit') }})</ion-label>
         <ion-radio slot="start" value="hide-unit"></ion-radio>
       </ion-item>

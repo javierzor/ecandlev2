@@ -6,6 +6,9 @@ import { AnimationItem, LottiePlayer } from 'lottie-web';
 import * as lottie from 'lottie-web';  // Esta línea es importante para poder usar lottie directamente
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { Capacitor } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-step4',
@@ -23,11 +26,43 @@ export class Step4Page {
     private navCtrl: NavController,
     private animationService: AnimationService,
     private router: Router,
-    public storageService: StorageService
-  ) {}
+    public storageService: StorageService,
+    private screenOrientation: ScreenOrientation,
+    private platform: Platform,
+  )
+  
+  {
 
+    this.bloquearLandscape();
+
+  }
+
+
+  
+  bloquearLandscape() {
+    // Solo intentar cambiar orientación si es Android o iOS
+    if (
+      Capacitor.getPlatform() === 'android' ||
+      Capacitor.getPlatform() === 'ios'
+    ) {
+      this.platform.ready().then(() => {
+        try {
+          this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE)
+            .then(() => console.log('Orientación bloqueada a horizontal'))
+            .catch(err => console.warn('No se pudo bloquear orientación:', err));
+        } catch (e) {
+          console.warn('Error en orientación:', e);
+        }
+      });
+    } else {
+      console.log('Orientación no forzada: estamos en navegador');
+    }
+  }
 
   ionViewWillEnter() {
+    this.bloquearLandscape();
+
+
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
   }
