@@ -12,7 +12,7 @@ import { StorageService } from '../services/storage.service';
 export class Step2Page {
   @ViewChild(IonContent, { static: true, read: ElementRef }) content!: ElementRef;
 
-  popularColors = ['#FF5733', '#33C1FF', '#FFD700', '#8E44AD', '#28B463', '#F39C12', '#1ABC9C', '#E74C3C'];
+  popularColors = ['#FF5733', '#33C1FF', '#FFD700', '#8E44AD', '#28B463', '#F39C12', '#FFB6C1', '#ADD8E6'];
 
   selectedBackground: string = '';
   selectedPrimary: string = '';

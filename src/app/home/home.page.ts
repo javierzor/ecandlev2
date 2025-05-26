@@ -20,12 +20,16 @@ export class HomePage {
     { code: 'es', label: 'Español' },
     { code: 'en', label: 'Inglés' },
   ];
-
+shower_meses: string = "1";
+step: string;
   constructor(private router: Router,  public storageService: StorageService) {
+
+    this.step="1";
     this.populateAges();
 
     // ✅ Leer edad real (no enmascarada)
     const cachedAge = localStorage.getItem('realAge');
+    
     this.selectedAge = cachedAge ? parseInt(cachedAge) : 0;
     this.realAge = this.selectedAge;
 
@@ -36,6 +40,17 @@ export class HomePage {
     // ✅ Leer máscara si existe
     const cachedMask = localStorage.getItem('maskType');
     if (cachedMask) this.maskType = cachedMask as any;
+
+    // ✅ Leer idioma o usar 'es'
+    const cachedshowermesesload = localStorage.getItem('cached_shower_meses');
+    this.shower_meses = cachedshowermesesload || '1';
+
+
+  }
+
+  ionViewWillEnter(){
+        localStorage.setItem('cached_shower_meses', this.shower_meses);
+
   }
 
   populateAges() {
@@ -96,4 +111,14 @@ export class HomePage {
     // ya no es necesario guardar realAge aquí porque se guarda automáticamente al cambiar
     this.router.navigate(['/step2']);
   }
+
+  cambio_mes_shower(){
+        localStorage.setItem('cached_shower_meses', this.shower_meses);
+
+  }
+
+  step2(){
+    this.step='2';
+  }
+
 }
