@@ -16,6 +16,7 @@ export class AppComponent {
     private platform: Platform,
 
   ) {
+sessionStorage.removeItem('alreadyOpened');
 
   }
 

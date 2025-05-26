@@ -32,9 +32,9 @@ export class StorageService {
 
     if (age >= 10 && age < 100) {
       if (maskType === 'hide-decade') {
-        maskedAge = '#' + ageStr[1];
+        maskedAge = '?' + ageStr[1];
       } else if (maskType === 'hide-unit') {
-        maskedAge = ageStr[0] + '#';
+        maskedAge = ageStr[0] + '?';
       }
     }
 

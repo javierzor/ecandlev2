@@ -215,24 +215,27 @@ async mostrarAlertaColorRepetido() {
   }
 
   cambio_nombre() {
-    var nombre = this.nombre_del_que_cumple;
-    const longitud = nombre?.length || 0;
-
-    if (longitud >= 3 && longitud <= 11) {
-      this.nombre_del_que_cumple = nombre;
-      this.mostrarNombre = true;
-      localStorage.setItem('cached_ocultar_nombre', 'no');
+        var nombre = this.nombre_del_que_cumple;
       localStorage.setItem('cached_nombre_del_que_cumple', nombre);
+
+  //   var nombre = this.nombre_del_que_cumple;
+  //   const longitud = nombre?.length || 0;
+
+  //   if (longitud >= 3 && longitud <= 11) {
+  //     this.nombre_del_que_cumple = nombre;
+  //     this.mostrarNombre = true;
+  //     localStorage.setItem('cached_ocultar_nombre', 'no');
+  //     localStorage.setItem('cached_nombre_del_que_cumple', nombre);
 
     
 
-    }
+  //   }
   
-    else{
-      localStorage.setItem('cached_nombre_del_que_cumple', '');
-      localStorage.setItem('cached_ocultar_nombre', 'si');
+  //   else{
+  //     localStorage.setItem('cached_nombre_del_que_cumple', '');
+  //     localStorage.setItem('cached_ocultar_nombre', 'si');
 
-  }
+  // }
 
 
 

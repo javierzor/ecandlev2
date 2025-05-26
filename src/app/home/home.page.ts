@@ -20,16 +20,27 @@ export class HomePage {
     { code: 'es', label: 'Español' },
     { code: 'en', label: 'Inglés' },
   ];
-shower_meses: string = "1";
-step: string;
-  constructor(private router: Router,  public storageService: StorageService) {
+  shower_meses: string = "1";
+  step: string;
+  constructor(private router: Router, public storageService: StorageService) {
 
-    this.step="1";
+    // this.step="1";
+
+    // Detectar si esta es una nueva sesión de app
+    const launched = sessionStorage.getItem('alreadyOpened');
+
+    if (launched === 'yes') {
+      this.step = '2'; // ya estaba abierta
+    } else {
+      this.step = '1'; // se acaba de lanzar
+      sessionStorage.setItem('alreadyOpened', 'yes');
+    }
+
     this.populateAges();
 
     // ✅ Leer edad real (no enmascarada)
     const cachedAge = localStorage.getItem('realAge');
-    
+
     this.selectedAge = cachedAge ? parseInt(cachedAge) : 0;
     this.realAge = this.selectedAge;
 
@@ -48,8 +59,8 @@ step: string;
 
   }
 
-  ionViewWillEnter(){
-        localStorage.setItem('cached_shower_meses', this.shower_meses);
+  ionViewWillEnter() {
+    localStorage.setItem('cached_shower_meses', this.shower_meses);
 
   }
 
@@ -112,13 +123,13 @@ step: string;
     this.router.navigate(['/step2']);
   }
 
-  cambio_mes_shower(){
-        localStorage.setItem('cached_shower_meses', this.shower_meses);
+  cambio_mes_shower() {
+    localStorage.setItem('cached_shower_meses', this.shower_meses);
 
   }
 
-  step2(){
-    this.step='2';
+  step2() {
+    this.step = '2';
   }
 
 }
