@@ -9,12 +9,13 @@ import { StorageService } from 'src/app/services/storage.service';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
+import { Insomnia } from '@awesome-cordova-plugins/insomnia/ngx';
 
 @Component({
   selector: 'app-step4',
   templateUrl: './step4.page.html',
   styleUrls: ['./step4.page.scss'],
-  standalone:false
+  standalone: false
 
 })
 export class Step4Page {
@@ -29,16 +30,16 @@ export class Step4Page {
     public storageService: StorageService,
     private screenOrientation: ScreenOrientation,
     private platform: Platform,
-  )
-  
-  {
+    private insomnia: Insomnia
+
+  ) {
 
     this.bloquearLandscape();
 
   }
 
 
-  
+
   bloquearLandscape() {
     // Solo intentar cambiar orientación si es Android o iOS
     if (
@@ -65,6 +66,9 @@ export class Step4Page {
 
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
+    this.insomnia.keepAwake()
+      .then(() => console.log('Pantalla no se apagará'))
+      .catch(e => console.log('Error al mantener pantalla activa', e));
   }
 
   ngOnInit() {
@@ -87,9 +91,15 @@ export class Step4Page {
     if (this.animation) {
       this.animation.destroy();
     }
+
+    this.insomnia.allowSleepAgain()
+      .then(() => console.log('Pantalla puede apagarse de nuevo'))
+      .catch(e => console.log('Error al permitir suspensión de pantalla', e));
+
+
   }
 
-  irapaso1(){
+  irapaso1() {
     this.router.navigate(['/home']);
   }
 
@@ -111,5 +121,5 @@ export class Step4Page {
   //     });
   //   }
   // }
-  
+
 }
