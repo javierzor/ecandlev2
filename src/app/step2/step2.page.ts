@@ -77,19 +77,34 @@ export class Step2Page {
   }
 
 
-  selectColor(type: 'background' | 'primary' | 'secondary', color: string) {
-    if (type === 'background') this.selectedBackground = color;
-    if (type === 'primary') this.selectedPrimary = color;
-    if (type === 'secondary') this.selectedSecondary = color;
-
-    // Guardar inmediatamente en localStorage al seleccionar un color
-    localStorage.setItem('backgroundColor', this.selectedBackground);
-    localStorage.setItem('primaryColor', this.selectedPrimary);
-    localStorage.setItem('secondaryColor', this.selectedSecondary);
-
-    // También puedes llamar vercambios si quieres detectar la acción
-    this.vercambios();
+selectColor(type: 'background' | 'primary' | 'secondary', color: string) {
+  // Evita que el color primario y secundario sean iguales
+  if ((type === 'primary' && color === this.selectedSecondary) ||
+      (type === 'secondary' && color === this.selectedPrimary)) {
+    this.mostrarAlertaColorRepetido();
+    return;
   }
+
+  if (type === 'background') this.selectedBackground = color;
+  if (type === 'primary') this.selectedPrimary = color;
+  if (type === 'secondary') this.selectedSecondary = color;
+
+  // Guardar inmediatamente en localStorage
+  localStorage.setItem('backgroundColor', this.selectedBackground);
+  localStorage.setItem('primaryColor', this.selectedPrimary);
+  localStorage.setItem('secondaryColor', this.selectedSecondary);
+
+  this.vercambios();
+}
+
+async mostrarAlertaColorRepetido() {
+  const alert = await this.alertController.create({
+    header: 'Color repetido',
+    message: 'El color primario y el secundario no pueden ser iguales. Por favor selecciona colores diferentes.',
+    buttons: ['Aceptar']
+  });
+  await alert.present();
+}
 
   goToStep3() {
     localStorage.setItem('backgroundColor', this.selectedBackground);
