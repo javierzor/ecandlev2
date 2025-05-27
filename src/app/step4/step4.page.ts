@@ -66,9 +66,28 @@ export class Step4Page {
 
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
+
+  }
+
+  restringirbloqueoconinsonmia(){
+        // Solo intentar restringir el bloqueo de pantalla si es Android o iOS
+    if (
+      Capacitor.getPlatform() === 'android' ||
+      Capacitor.getPlatform() === 'ios'
+    ) {
+      this.platform.ready().then(() => {
+        try {
     this.insomnia.keepAwake()
       .then(() => console.log('Pantalla no se apagará'))
       .catch(e => console.log('Error al mantener pantalla activa', e));
+          
+        } catch (e) {
+          console.warn('Error en orientación:', e);
+        }
+      });
+    } else {
+      console.log('Orientación no forzada: estamos en navegador');
+    }
   }
 
   ngOnInit() {

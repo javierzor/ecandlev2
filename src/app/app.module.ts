@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx'; // ✅ Correcto
 import { CommonModule } from '@angular/common';
+import { Insomnia } from '@awesome-cordova-plugins/insomnia/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { CommonModule } from '@angular/common';
 ],
 providers: [
   { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  Insomnia,
   ScreenOrientation,
    // ✅ Aquí debe ir solo, en su propia línea
 ],
