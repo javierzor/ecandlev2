@@ -33,7 +33,10 @@
     <app-animacionseiscomp ></app-animacionseiscomp>
   </div>
 
-  
+      <div *ngIf="this.storageService.data['animacion_seleccionada']==='7'">
+    <app-animacionsietecomp ></app-animacionsietecomp>
+  </div>
+
 
 
   <!-- <div class="animation-container" [innerHTML]="finalAnimation"></div> -->

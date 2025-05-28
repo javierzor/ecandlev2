@@ -13,6 +13,7 @@ import { AnimaciontrescompComponent } from '../components/animaciontrescomp/anim
 import { AnimacioncuatrocompComponent } from '../components/animacioncuatrocomp/animacioncuatrocomp.component';
 import { AnimacioncincocompComponent } from '../components/animacioncincocomp/animacioncincocomp.component';
 import { AnimacionseiscompComponent } from '../components/animacionseiscomp/animacionseiscomp.component';
+import { AnimacionsietecompComponent } from '../components/animacionsietecomp/animacionsietecomp.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { AnimacionseiscompComponent } from '../components/animacionseiscomp/anim
     AnimaciontrescompComponent,
     AnimacioncuatrocompComponent,
     AnimacioncincocompComponent,
-    AnimacionseiscompComponent
+    AnimacionseiscompComponent,
+    AnimacionsietecompComponent
 
 
 
