@@ -1,6 +1,4 @@
-<div style="position:absolute;z-index: 22; left:47%; width: 50px; top:-40vh">
-
-
+<div>
   <div class="confetti-container">
     <div *ngFor="let c of confettis" class="confetti" [ngStyle]="{
       left: c.left,
@@ -9,25 +7,10 @@
       backgroundColor: c.color
     }"></div>
   </div>
-
-  <div class="confetti-container">
-    <div *ngFor="let c of confettis" class="confetti" [ngStyle]="{
-      left: c.left,
-      animationDuration: c.duration,
-      animationDelay: c.delay,
-      backgroundColor: c.color
-    }"></div>
-  </div>
-
 </div>
 
-
 <div class="fx-wrapper" [style.background]="getBackground()">
-  <!-- Confeti generado dinámicamente -->
-  <!-- Confeti generado dinámicamente -->
-
-
-  <!-- Partículas que vuelan hacia el número -->
+  <!-- Partículas -->
   <div class="particles">
     <div *ngFor="let p of particles" class="particle" [ngStyle]="{
         top: p.top,
@@ -40,12 +23,10 @@
       }"></div>
   </div>
 
-  <!-- Contenedor del número -->
-<div class="number-container">
-  <h1 class="fx-age filled-text">
-    {{ storageService.data['Age'] }}
-  </h1>
-</div>
+  <!-- Número central animado -->
+  <div class="number-container">
+    <h1 class="fx-age filled-text animated-grow">{{ storageService.data['Age'] }}</h1>
+  </div>
 
   <!-- Texto inferior -->
   <div class="fx-content">

@@ -24,39 +24,41 @@
   margin-bottom: 1rem;
 }
 
-.fx-age.mask-number {
+.filled-text {
   font-size: 7rem;
   font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 2px #ffffff;
-  mix-blend-mode: screen;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  background: linear-gradient(to top, var(--fillColor) 0%, transparent 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  animation: fillText 7s ease-in-out infinite alternate;
 }
 
-.fill-mask {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  z-index: 1;
-  animation: fillUp 7s forwards ease-in-out;
-  mix-blend-mode: screen;
-  border-radius: 10px;
+@keyframes fillText {
+  0% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
-@keyframes fillUp {
+.animated-grow {
+  animation: growScale 10s ease-in-out infinite alternate;
+}
+
+@keyframes growScale {
   0% {
-    height: 0%;
+    transform: scale(0.1);
+    opacity: 0.1;
+  }
+  60% {
+    transform: scale(1.5);
     opacity: 0.5;
   }
-  50% {
-    height: 40%;
-    opacity: 0.7;
-  }
   100% {
-    height: 100%;
+    transform: scale(1.2);
     opacity: 1;
   }
 }
@@ -64,7 +66,7 @@
 .fx-content {
   z-index: 6;
   text-align: center;
-  animation: fadeInText 4s ease-in-out forwards;
+  animation: fadeInText 4s ease-in-out infinite alternate;
 }
 
 .fx-name {
@@ -90,15 +92,12 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  animation: flyToCenter 7s ease-in forwards;
+  animation: flyToCenter 3s ease-in-out infinite alternate;
   mix-blend-mode: screen;
 }
 
 @keyframes flyToCenter {
-  0% {
-    transform: scale(0.3);
-    opacity: 0.3;
-  }
+  0% { transform: scale(0.3); opacity: 0.3; }
   100% {
     top: 50%;
     left: 50%;
@@ -107,9 +106,7 @@
   }
 }
 
-
-
-
+/* Confetti */
 .confetti-container {
   position: absolute;
   top: 0;
@@ -126,49 +123,12 @@
   width: 10px;
   height: 6px;
   opacity: 0.9;
-  animation: fall linear infinite;
+  animation: fall 1.5s linear infinite;
   border-radius: 2px;
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(50vh) rotate(180deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-// el resto se mantiene igual que el .fx-wrapper y demás
-
-.filled-text {
-  font-size: 7rem;
-  font-weight: 900;
-  position: relative;
-  z-index: 3;
-
-  // Borde exterior blanco
-  color: transparent;
-  -webkit-text-stroke: 2px #fff;
-
-  // El relleno simulado
-  background: linear-gradient(to top, var(--fillColor) 0%, transparent 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: fillText 7s ease-in-out forwards;
-}
-
-@keyframes fillText {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
 }
