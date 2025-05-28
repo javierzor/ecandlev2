@@ -11,6 +11,7 @@ import { AnimacionunocompComponent } from "../components/animacionunocomp/animac
 import { AnimaciondoscompComponent } from "../components/animaciondoscomp/animaciondoscomp.component";
 import { AnimaciontrescompComponent } from "../components/animaciontrescomp/animaciontrescomp.component";
 import { AnimacioncuatrocompComponent } from "../components/animacioncuatrocomp/animacioncuatrocomp.component";
+import { AnimacioncincocompComponent } from "../components/animacioncincocomp/animacioncincocomp.component";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AnimacioncuatrocompComponent } from "../components/animacioncuatrocomp/
     AnimacionunocompComponent,
     AnimaciondoscompComponent,
     AnimaciontrescompComponent,
-    AnimacioncuatrocompComponent
+    AnimacioncuatrocompComponent,
+    AnimacioncincocompComponent
 ],
   declarations: [Step3Page]
 })

@@ -1,181 +1,78 @@
-.centertexthappy {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-  }
-
-
-
-  
-
-  body{
-    background-color: #ECEAEA;
-  }
-  
-  .text-line text {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 500;
-    animation: dash 5s linear forwards infinite, filling 4s ease-in forwards ;
-  }
-  
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  
-  @keyframes filling {
-    from{
-      fill: #2A4A73;
-      fill-opacity: 0;
-    }
-    to {
-      fill: #2A4A73;
-      fill-opacity: 1;
-    }
-  }
-  
-  
-
-
-
-
-  ///animacion numerica
-  span.step {
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
-    color: #ffffff;
-    display: inline-block;
-    font-weight: bold;
-    line-height: 1.6em;
-    margin-right: 5px;
-    text-align: center;
-    width: 1.6em; 
-    font-size: 6rem;
-  }
-
-  .balloon {
-    position: relative;
-    display: inline-block;
-    padding: 1.2rem 2.4rem;
-    border-radius: 50% 50% 60% 60%;
-    color: #fff;
-    font-size: 6rem;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    line-height: 1;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Nudito del globo */
-  .knot {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 12px solid #333; /* color del nudo */
-  }
-  
-  /* Cuerda del globo */
-  .string {
-    position: absolute;
-    bottom: -55px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 60px;
-    background: black;
-    animation: stringSwing 4s ease-in-out infinite;
-    transform-origin: top center;
-  }
-  
-  @keyframes stringSwing {
-    0%   { transform: translateX(-50%) rotate(0deg); }
-    25%  { transform: translateX(-50%) rotate(5deg); }
-    50%  { transform: translateX(-50%) rotate(-5deg); }
-    75%  { transform: translateX(-50%) rotate(3deg); }
-    100% { transform: translateX(-50%) rotate(0deg); }
-  }
-  
-  /* Animación de flotación ligera */
-  @keyframes float {
-    0% { transform: translateX(-50%) rotate(0deg); }
-    50% { transform: translateX(-50%) rotate(3deg); }
-    100% { transform: translateX(-50%) rotate(0deg); }
-  }
-  .balloon-container {
-    animation: balloonFloat 4s ease-in-out infinite;
-    display: inline-block;
-  }
-  
-  /* Movimiento del globo completo */
-  @keyframes balloonFloat {
-    0%   { transform: translateY(0px) rotate(0deg); }
-    25%  { transform: translateY(-10px) rotate(-2deg); }
-    50%  { transform: translateY(-15px) rotate(2deg); }
-    75%  { transform: translateY(-10px) rotate(-1.5deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-  }
-  
-  ///animacion numerica
-
-
-
-
-
-  // Please change your favorite font-size!
-$fontSize: 5rem;
-
-
-
-
-
-div {
-  will-change: transform;
+.sorpresa-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f9d423, #ff4e50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
-#ui {
-  transform-style: preserve-3d;
-  .text {
-    position: absolute;
-    font-size: $fontSize;
-    color: #fff;
-    line-height: $fontSize;
-    font-family: 'babybison', sans-serif;
-    mix-blend-mode: screen;
-    transform-style: preserve-3d;
-    @for $i from 1 through 26 {
-      $key: $i - 1;
-      $param: 5;
-      &:nth-child(#{$i}) {
-        clip-path: polygon(
-          -30% + ($key * $param) 0,
-          -20% + ($key * $param) 0,
-          20% + ($key * $param) 100%,
-          0% + ($key * $param) 100%
-        );
-        animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
-      }
-    }
+/* Texto central */
+.mensaje-cumple {
+  z-index: 2;
+  color: white;
+}
+
+.glow-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 15px #fff, 0 0 30px #ff00cc, 0 0 45px #ff00cc;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.nombre-personal {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+
+.subtext {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  color: #f0f0f0;
+}
+
+/* Glow efecto */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff00cc, 0 0 15px #ff00cc;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff00cc, 0 0 60px #ff00cc;
   }
 }
 
-@keyframes wave {
+/* Confeti animado */
+.confetti::before, .confetti::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle at 10px 10px, #fff 3px, transparent 4px),
+                    radial-gradient(circle at 30px 20px, #ff0 3px, transparent 4px),
+                    radial-gradient(circle at 60px 10px, #0f0 3px, transparent 4px),
+                    radial-gradient(circle at 80px 40px, #f0f 3px, transparent 4px),
+                    radial-gradient(circle at 100px 30px, #0ff 3px, transparent 4px);
+  background-size: 100px 100px;
+  animation: confeti 20s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.confetti::after {
+  animation-delay: 5s;
+}
+
+@keyframes confeti {
   0% {
-    transform:scale(0.9) rotateX(20deg) rotateY(20deg) rotateZ(0deg);
-    color: rgba(0, 30, 100, 1);
+    transform: translateY(0) rotate(0deg);
   }
   100% {
-    transform: scale(1.1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    color: rgba(50, 230, 255, 1);
+    transform: translateY(100vh) rotate(360deg);
   }
 }
-        // animacion ocean text

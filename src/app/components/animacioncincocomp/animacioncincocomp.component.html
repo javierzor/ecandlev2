@@ -1,0 +1,56 @@
+<div style="position:absolute;z-index: 22; left:47%; width: 50px; top:-40vh">
+
+
+  <div class="confetti-container">
+    <div *ngFor="let c of confettis" class="confetti" [ngStyle]="{
+      left: c.left,
+      animationDuration: c.duration,
+      animationDelay: c.delay,
+      backgroundColor: c.color
+    }"></div>
+  </div>
+
+  <div class="confetti-container">
+    <div *ngFor="let c of confettis" class="confetti" [ngStyle]="{
+      left: c.left,
+      animationDuration: c.duration,
+      animationDelay: c.delay,
+      backgroundColor: c.color
+    }"></div>
+  </div>
+
+</div>
+
+
+<div class="fx-wrapper" [style.background]="getBackground()">
+  <!-- Confeti generado dinámicamente -->
+  <!-- Confeti generado dinámicamente -->
+
+
+  <!-- Partículas que vuelan hacia el número -->
+  <div class="particles">
+    <div *ngFor="let p of particles" class="particle" [ngStyle]="{
+        top: p.top,
+        left: p.left,
+        animationDelay: p.delay,
+        width: p.size,
+        height: p.size,
+        opacity: p.opacity,
+        backgroundColor: getPrimaryColor()
+      }"></div>
+  </div>
+
+  <!-- Contenedor del número -->
+<div class="number-container">
+  <h1 class="fx-age filled-text">
+    {{ storageService.data['Age'] }}
+  </h1>
+</div>
+
+  <!-- Texto inferior -->
+  <div class="fx-content">
+    <h2 class="fx-name" [style.textShadow]="getGlow()">
+      🎉 ¡Feliz cumpleaños {{ storageService.data['cached_nombre_del_que_cumple'] }}! 🎉
+    </h2>
+  </div>
+</div>

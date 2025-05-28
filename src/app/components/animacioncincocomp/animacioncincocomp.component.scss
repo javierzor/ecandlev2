@@ -1,0 +1,174 @@
+.fx-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-size: 150% 150%;
+  animation: flicker-bg 20s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@keyframes flicker-bg {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.1); }
+}
+
+.number-container {
+  position: relative;
+  width: fit-content;
+  height: 10rem;
+  z-index: 5;
+  margin-bottom: 1rem;
+}
+
+.fx-age.mask-number {
+  font-size: 7rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+  mix-blend-mode: screen;
+  position: relative;
+  z-index: 2;
+}
+
+.fill-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  z-index: 1;
+  animation: fillUp 7s forwards ease-in-out;
+  mix-blend-mode: screen;
+  border-radius: 10px;
+}
+
+@keyframes fillUp {
+  0% {
+    height: 0%;
+    opacity: 0.5;
+  }
+  50% {
+    height: 40%;
+    opacity: 0.7;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.fx-content {
+  z-index: 6;
+  text-align: center;
+  animation: fadeInText 4s ease-in-out forwards;
+}
+
+.fx-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Partículas */
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: flyToCenter 7s ease-in forwards;
+  mix-blend-mode: screen;
+}
+
+@keyframes flyToCenter {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.3;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+
+
+
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 6px;
+  opacity: 0.9;
+  animation: fall linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+// el resto se mantiene igual que el .fx-wrapper y demás
+
+.filled-text {
+  font-size: 7rem;
+  font-weight: 900;
+  position: relative;
+  z-index: 3;
+
+  // Borde exterior blanco
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+
+  // El relleno simulado
+  background: linear-gradient(to top, var(--fillColor) 0%, transparent 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: fillText 7s ease-in-out forwards;
+}
+
+@keyframes fillText {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
