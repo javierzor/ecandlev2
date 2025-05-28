@@ -17,7 +17,7 @@ export class AnimacioncincocompComponent implements OnInit {
 
   ngOnInit() {
     this.generateParticles(480);
-    this.generateConfetti(60);
+    this.generateConfetti(20);
 
     const root = document.documentElement;
     root.style.setProperty('--fillColor', this.getPrimaryColor());
