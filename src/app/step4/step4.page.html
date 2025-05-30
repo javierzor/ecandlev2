@@ -1,47 +1,9 @@
-<ion-content fullscreen >
+<div *ngIf="this.storageService.data['animacion_seleccionada']==='1'">
+    <app-animacionunocomp></app-animacionunocomp>
 
-  <ion-fab-button (click)="irapaso1()" size="small" style="padding:0; position:absolute;top:2px;left:2px;z-index: 222;" color="transparent">
-    <ion-icon size="small" name="close"></ion-icon>
-  </ion-fab-button>
+</div>
 
-  <!-- <div id="lottie-container" style="width: 100%; height: 100%;"></div> -->
+<div *ngIf="this.storageService.data['animacion_seleccionada']==='2'">
+    <app-animaciondoscomp></app-animaciondoscomp>
 
-  <div *ngIf="this.storageService.data['animacion_seleccionada']==='1'" >
-    <app-animacionunocomp   ></app-animacionunocomp>
-  </div>
-
-
-  <div  *ngIf="this.storageService.data['animacion_seleccionada']==='2'"  >
-    <app-animaciondoscomp ></app-animaciondoscomp> 
-  </div>
-
-
-  <div  *ngIf="this.storageService.data['animacion_seleccionada']==='3'">
-    <app-animaciontrescomp ></app-animaciontrescomp>
-  </div>
-
-
-  <div *ngIf="this.storageService.data['animacion_seleccionada']==='4'">
-    <app-animacioncuatrocomp ></app-animacioncuatrocomp>
-  </div>
-
-    <div *ngIf="this.storageService.data['animacion_seleccionada']==='5'">
-    <app-animacioncincocomp ></app-animacioncincocomp>
-  </div>
-
-    <div *ngIf="this.storageService.data['animacion_seleccionada']==='6'">
-    <app-animacionseiscomp ></app-animacionseiscomp>
-  </div>
-
-      <div *ngIf="this.storageService.data['animacion_seleccionada']==='7'">
-    <app-animacionsietecomp ></app-animacionsietecomp>
-  </div>
-
-
-
-  <!-- <div class="animation-container" [innerHTML]="finalAnimation"></div> -->
-  <!-- 
-  <ion-button expand="block" color="medium" (click)="goBack()">
-    🔁 Cambiar animación
-  </ion-button> -->
-</ion-content>
+</div>

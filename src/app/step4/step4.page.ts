@@ -39,7 +39,12 @@ export class Step4Page {
   }
 
 
-
+  ngOnInit() {
+    this.storageService.loadCache();
+    console.log('Cache cargado:', this.storageService.data);
+    // this.loadLottieAnimation();
+  }
+  
   bloquearLandscape() {
     // Solo intentar cambiar orientación si es Android o iOS
     if (
@@ -61,26 +66,26 @@ export class Step4Page {
   }
 
   ionViewWillEnter() {
-    this.bloquearLandscape();
-
-
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
+    this.bloquearLandscape();
+    this.restringirbloqueoconinsonmia();
+
 
   }
 
-  restringirbloqueoconinsonmia(){
-        // Solo intentar restringir el bloqueo de pantalla si es Android o iOS
+  restringirbloqueoconinsonmia() {
+    // Solo intentar restringir el bloqueo de pantalla si es Android o iOS
     if (
       Capacitor.getPlatform() === 'android' ||
       Capacitor.getPlatform() === 'ios'
     ) {
       this.platform.ready().then(() => {
         try {
-    this.insomnia.keepAwake()
-      .then(() => console.log('Pantalla no se apagará'))
-      .catch(e => console.log('Error al mantener pantalla activa', e));
-          
+          this.insomnia.keepAwake()
+            .then(() => console.log('Pantalla no se apagará'))
+            .catch(e => console.log('Error al mantener pantalla activa', e));
+
         } catch (e) {
           console.warn('Error en orientación:', e);
         }
@@ -90,21 +95,6 @@ export class Step4Page {
     }
   }
 
-  ngOnInit() {
-    const name = localStorage.getItem('name') || 'Nombre';
-    const age = localStorage.getItem('age') || '00';
-    const color1 = localStorage.getItem('color1') || '#ff4081';
-    const color2 = localStorage.getItem('color2') || '#3f51b5';
-    const selectedId = parseInt(localStorage.getItem('selectedAnimation') || '1');
-    const animations = this.animationService.getAnimations(name, age, color1, color2);
-    const selected = animations.find(anim => anim.id === selectedId);
-    this.finalAnimation = selected?.preview || '';
-
-    // this.loadLottieAnimation();
-
-
-
-  }
 
   ngOnDestroy() {
     if (this.animation) {
@@ -126,19 +116,5 @@ export class Step4Page {
     this.navCtrl.navigateBack('/step3');
   }
 
-
-  // private loadLottieAnimation() {
-  //   const animationContainer = document.getElementById('lottie-container');
-
-  //   if (animationContainer) {
-  //     this.animation = lottie.default.loadAnimation({
-  //       container: animationContainer,
-  //       path: 'assets/lotties_en_json/animation_celebration_1.json', // Reemplaza con la ruta de tu archivo JSON
-  //       renderer: 'svg',
-  //       loop: true,
-  //       autoplay: true
-  //     });
-  //   }
-  // }
 
 }

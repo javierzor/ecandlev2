@@ -23,13 +23,15 @@ export class Step3Page {
     public storageService: StorageService
   ) {}
 
+
   ionViewWillEnter() {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
   }
 
   ngOnInit() {
-    this.animations = this.animationService.getAnimations(this.name, this.age, this.color1, this.color2);
+    this.storageService.loadCache();
+    console.log('Cache cargado:', this.storageService.data);
   }
 
   seleccionar_animacion(numero: string) {

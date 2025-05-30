@@ -1,6 +1,16 @@
-<div class="birthday-wrapper" [style.background]="getRadialGradientBackground()">
-  <div class="center-content">
-    <div class="age-number">{{storageService.data['Age']}}</div>
-    <div class="birthday-text">¡Feliz cumpleaños {{storageService.data['cached_nombre_del_que_cumple']}}!</div>
+<div class="video-bg-wrapper">
+  <video
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
+
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
   </div>
 </div>

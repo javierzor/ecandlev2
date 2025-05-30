@@ -1,22 +1,29 @@
-.anim-wrapper {
-  width: 100%;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: #f4f4f4;
-  border-radius: 16px;
-  margin-bottom: 20px;
+// .anim-wrapper {
+//   width: 100%;
+//   height: 220px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   overflow: hidden;
+//   background: #f4f4f4;
+//   border-radius: 16px;
+//   margin-bottom: 20px;
 
-  app-animacionunocomp,
-  app-animaciondoscomp,
-  app-animaciontrescomp,
-  app-animacioncuatrocomp {
-    transform: scale(0.5); // ajusta si necesitas más zoom
-    transform-origin: center;
-  }
+//   app-animacionunocomp,
+//   app-animaciondoscomp,
+//   app-animaciontrescomp,
+//   app-animacioncuatrocomp {
+//     transform: scale(0.5); // ajusta si necesitas más zoom
+//     transform-origin: center;
+//   }
+// }
+
+.anim-wrapper {
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  overflow: hidden;
 }
+
 
 // Opcional: destacar la animación seleccionada
 .seleccionada {
