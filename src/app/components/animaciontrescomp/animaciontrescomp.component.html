@@ -1,9 +1,17 @@
-<div class="sorpresa-wrapper" [style.background]="getLinearGradientBackground()">
-  <div class="confetti"></div>
+<div class="video-bg-wrapper" (click)="playVideo()">
+  <video
+    #bgVideo
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
 
-  <div class="mensaje-cumple">
-    <h1 class="glow-text">{{ storageService.data['Age'] }}</h1>
-    <h2 class="nombre-personal">🎉 ¡Feliz cumpleaños !🎉</h2>
-    <p class="subtext">{{ storageService.data['cached_nombre_del_que_cumple'] }} ✨</p>
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
   </div>
 </div>

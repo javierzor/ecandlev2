@@ -48,4 +48,9 @@ export class Step3Page {
   atras() {
     this.navCtrl.navigateRoot('/step2');
   }
+  console(){
+    console.log('console')
+  }
+
+
 }

@@ -1,108 +1,17 @@
+<div class="video-bg-wrapper" (click)="playVideo()">
+  <video
+    #bgVideo
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
 
-
-
-<div class="animation-container">
-  <div class="particles layer1"></div>
-  <div class="particles layer2"></div>
-
-
-
-  <div class="birthday-text">
-    <div style="position:absolute;top:30%;left:50%">
-      <div class="planet-wrapper">
-        <div class="age-planet">
-                  <div class="explosive-fireworks">
-            <div class="spark-line" *ngFor="let i of [].constructor(150); let idx = index">
-              <div class="spark">
-                <div class="fire" ></div>
-              </div>
-            </div>
-          <span *ngFor="let i of [].constructor(20)"> {{ storageService.data['Age'] }} </span>
-          
-        </div>
-        
-      </div>
-    </div>
-
-  </div>
-  <div class="explosion-container" style="margin-top:170px; margin-left:53px" >
-    <span class="letter" [style.color]="getPrimaryColor()"
-      *ngFor="let c of (storageService.data['birthdayText'] + ' ' + storageService.data['cached_nombre_del_que_cumple']).split('')">
-      {{ c }}
-    </span>
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
   </div>
 </div>
-
-
-<img style="position:absolute; top:35%;right:12%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:65%;right:32%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:49%;left:82%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:50%;right:30%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-
-<!-- otros fire -->
-
-
-<img style="position:absolute; top:35%;left:12%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:65%;left:32%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:49%;right:82%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:50%;left:30%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>
-
-
-<img style="position:absolute; top:50%;left:80%"
-  src="assets/fireworks.gif"
-  [style.filter]="getColorFilter()"
-  class="tinted-gif"
-/>

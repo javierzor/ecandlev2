@@ -1,18 +1,17 @@
-<div class="explosion-wrapper" [style.background]="getLinearGradientBackground()">
-  <div class="explosion-background"></div>
-  <div class="flash-burst" [style.background]="getRadialFlash()"></div>
+<div class="video-bg-wrapper" (click)="playVideo()">
+  <video
+    #bgVideo
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
 
-  <div class="explosion-text">
-    <h1 class="blast-text" [style.color]="getPrimaryTextColor()" [style.textShadow]="getTextStrokeShadow()">
-      {{ storageService.data['Age'] }}
-    </h1>
-
-<h2 class="blast-name" [style.textShadow]="getPrimaryGlow()">
-  ¡Feliz Cumpleaños {{ storageService.data['cached_nombre_del_que_cumple'] }}!
-</h2>
-    
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
   </div>
-
-  <div class="particle" *ngFor="let p of [].constructor(30); let i = index"
-    [style.backgroundColor]="getParticleColor(i)"></div>
 </div>

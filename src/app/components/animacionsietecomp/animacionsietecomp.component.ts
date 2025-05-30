@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -7,97 +6,82 @@ import { StorageService } from 'src/app/services/storage.service';
   standalone: true,
   templateUrl: './animacionsietecomp.component.html',
   styleUrls: ['./animacionsietecomp.component.scss'],
-  imports: [CommonModule]
 
 })
 export class AnimacionsietecompComponent implements OnInit {
-  @ViewChild('waveSVG') waveRef!: ElementRef;
-  @ViewChild('waveSVG22') waveRef22!: ElementRef;
+  @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
-  age: string = '';
-  birthdayText: string = '';
-  name: string = '';
-  primaryColor: string = '#ffffff';
-  secondaryColor: string = '#ff4081';
+  videoSrc = '';
+  age = '';
+  birthdayText = '';
+  name = '';
 
-  particles: { size: string; left: string; delay: string; color: string }[] = [];
+  private interactionHandler: () => void;
 
-  constructor(public storageService: StorageService) { }
+  constructor(public storageService: StorageService, private zone: NgZone) { }
 
   ngOnInit(): void {
+    const id = this.storageService.data['animacion_seleccionada'] || '1';
+    this.videoSrc = `assets/videosdefondo/7.mp4`;
 
-    this.loadData();
-
-    this.generateParticles(60);
-  }
-
-
-  loadData() {
-    this.age = this.storageService.data['Age'] || '10';
+    this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
-    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || '';
-    this.primaryColor = this.storageService.data['primaryColor'] || '#FFD700';
-    this.secondaryColor = this.storageService.data['secondaryColor'] || '#FFFFFF';
-
-    // Registrar secondaryColor como variable CSS para el fondo
-    const root = document.documentElement;
-    root.style.setProperty('--secondaryColor', this.secondaryColor);
-
-    this.generateParticles(60);
+    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || 'Invitado';
   }
 
-  ngAfterViewInit() {
-    this.ponerfillaginaldas(); // Ahora es seguro
+  ngAfterViewInit(): void {
+    const videoEl = this.bgVideoRef.nativeElement;
+
+    // Intenta reproducir cuando el video está listo
+    videoEl.addEventListener('canplay', () => {
+      videoEl.play().catch(err => {
+        console.warn('Autoplay bloqueado por el navegador:', err);
+        this.setupInteractionFallback(videoEl);
+      });
+    });
+
+    // Fallback por si canplay no se dispara
+    setTimeout(() => {
+      if (videoEl.paused) {
+        this.setupInteractionFallback(videoEl);
+      }
+    }, 1500);
   }
 
-  ionViewWillEnter() {
+  setupInteractionFallback(videoEl: HTMLVideoElement) {
+    if (this.interactionHandler) return;
 
-    this.secondaryColor = this.storageService.data['secondaryColor'] || '#FFFFFF';
+    this.interactionHandler = () => {
+      videoEl.play().then(() => {
+        console.log('🎬 Reproducción iniciada tras interacción');
+        this.removeInteractionListeners();
+      }).catch(err => {
+        console.warn('❌ No se pudo reproducir tras interacción:', err);
+      });
+    };
 
-    // ✅ Aplica secondaryColor como variable CSS para usar en animación
-    const root = document.documentElement;
-    root.style.setProperty('--secondaryColor', this.secondaryColor);
-
-    this.generateParticles(60);
-
+    const events = ['click', 'touchstart', 'pointerdown', 'mousedown', 'keydown', 'wheel'];
+    events.forEach(evt => {
+      window.addEventListener(evt, this.interactionHandler, true);
+    });
   }
 
-  ponerfillaginaldas() {
-    if (this.waveRef) {
-      this.waveRef.nativeElement.setAttribute('fill', this.storageService.data['primaryColor']);
-      this.waveRef22.nativeElement.setAttribute('fill', this.storageService.data['primaryColor']);
-
-    }
+  removeInteractionListeners() {
+    const events = ['click', 'touchstart', 'pointerdown', 'mousedown', 'keydown', 'wheel'];
+    events.forEach(evt => {
+      window.removeEventListener(evt, this.interactionHandler, true);
+    });
   }
 
-  generateParticles(count: number) {
-    const colors = [this.secondaryColor, '#ffffff', '#cccccc', '#f5f5dc'];
-    for (let i = 0; i < count; i++) {
-      this.particles.push({
-        size: `${4 + Math.random() * 12}px`,
-        left: `${Math.random() * 100}%`,
-        delay: `${Math.random() * 10}s`,
-        color: colors[Math.floor(Math.random() * colors.length)]
+
+  playVideo() {
+    const videoEl = this.bgVideoRef?.nativeElement;
+    if (videoEl && videoEl.paused) {
+      videoEl.play().catch(err => {
+        console.warn('Reproducción fallida al hacer clic:', err);
       });
     }
   }
-
-  adjustColorBrightness(hex: string, percent: number): string {
-    if (!hex.startsWith('#')) return hex;
-    let r = parseInt(hex.slice(1, 3), 16);
-    let g = parseInt(hex.slice(3, 5), 16);
-    let b = parseInt(hex.slice(5, 7), 16);
-
-    r = Math.min(255, Math.max(0, r + (r * percent) / 100));
-    g = Math.min(255, Math.max(0, g + (g * percent) / 100));
-    b = Math.min(255, Math.max(0, b + (b * percent) / 100));
-
-    return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-  }
-
-  getColor1() { return this.primaryColor; } // base
-  getColor2() { return this.adjustColorBrightness(this.primaryColor, -30); } // sombra
-  getColor3() { return this.adjustColorBrightness(this.primaryColor, 40); }  // brillo
 
 
 }

@@ -1,3 +1,17 @@
-<p>
-  animaciononcecomp works!
-</p>
+<div class="video-bg-wrapper" (click)="playVideo()">
+  <video
+    #bgVideo
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
+
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
+  </div>
+</div>

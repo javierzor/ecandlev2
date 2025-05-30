@@ -1,37 +1,17 @@
-<div>
-  <div class="confetti-container" style="zoom:0.4">
-    <div *ngFor="let c of confettis" class="confetti" [ngStyle]="{
-      left: c.left,
-      animationDuration: c.duration,
-      animationDelay: c.delay,
-      backgroundColor: c.color
-    }"></div>
-  </div>
-</div>
+<div class="video-bg-wrapper" (click)="playVideo()">
+  <video
+    #bgVideo
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    [attr.src]="videoSrc">
+  </video>
 
-<div class="fx-wrapper" [style.background]="getBackground()">
-  <!-- Partículas -->
-  <div class="particles">
-    <div *ngFor="let p of particles" class="particle" [ngStyle]="{
-        top: p.top,
-        left: p.left,
-        animationDelay: p.delay,
-        width: p.size,
-        height: p.size,
-        opacity: p.opacity,
-        backgroundColor: getPrimaryColor()
-      }"></div>
-  </div>
-
-  <!-- Número central animado -->
-  <div class="number-container">
-    <h1 class="fx-age filled-text animated-grow">{{ storageService.data['Age'] }}</h1>
-  </div>
-
-  <!-- Texto inferior -->
-  <div class="fx-content">
-    <h2 class="fx-name" [style.textShadow]="getGlow()">
-      🎉 ¡Feliz cumpleaños {{ storageService.data['cached_nombre_del_que_cumple'] }}! 🎉
-    </h2>
+  <div class="overlay-content">
+    <h1 class="age">{{ age }}</h1>
+    <h2 class="birthday-text">{{ birthdayText }}</h2>
+    <h3 class="name">{{ name }}</h3>
   </div>
 </div>
