@@ -56,7 +56,8 @@ export class StorageService {
       cached_nombre_del_que_cumple: localStorage.getItem('cached_nombre_del_que_cumple') || '',
       animacion_seleccionada: localStorage.getItem('animacion_seleccionada') || '',
       birthdayText: birthdayText, // <-- agregado
-      realAge: ageStr // <-- opcional si necesitas mostrar la original
+      realAge: ageStr, // <-- opcional si necesitas mostrar la original,
+      font_family_dinamico: localStorage.getItem('cached_font_family') || 'uno'
     };
 
     if (age < 1) {

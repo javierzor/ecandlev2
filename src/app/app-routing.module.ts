@@ -24,6 +24,11 @@ const routes: Routes = [
     loadChildren: () => import('./step4/step4.module').then( m => m.Step4PageModule)
   },
 
+  {
+    path: 'modalchangefont',
+    loadChildren: () => import('./modals/modalchangefont/modalchangefont.module').then( m => m.ModalchangefontPageModule)
+  },
+
 ];
 
 @NgModule({

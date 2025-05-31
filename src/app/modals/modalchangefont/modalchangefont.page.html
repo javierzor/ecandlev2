@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Seleccione la fuente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding" no-padding>
+
+
+  <ion-list class="ion-no-padding" style="margin-left: 20px;" no-padding>
+
+    <ion-item (click)="seleccionar_fuente('uno')" [ngClass]="{ 'seleccionada': seleccionada === 'uno' }" style="font-family:'uno'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+    <ion-item  (click)="seleccionar_fuente('dos')" [ngClass]="{ 'seleccionada': seleccionada === 'dos' }" style="font-family:'dos'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+    <ion-item style="font-family:'tres'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+    <ion-item style="font-family:'cuatro'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+        <ion-item style="font-family:'cinco'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+        <ion-item style="font-family:'seis'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+        <ion-item style="font-family:'siete'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+        <ion-item style="font-family:'ocho'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+            <ion-item style="font-family:'nueve'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+                <ion-item style="font-family:'diez'" class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

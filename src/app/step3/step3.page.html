@@ -12,7 +12,12 @@
         <ion-icon slot="end" name="arrow-redo"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Seleccionar animación:</ion-title>
+    <ion-title>
+            <ion-button [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()" fill="outline">
+                    <ion-icon size="small"   name="text-outline"></ion-icon>
+
+</ion-button>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
