@@ -22,6 +22,8 @@ export class HomePage {
   ];
   shower_meses: string = "1";
   step: string;
+    mostrarNombre: boolean = false;
+  nombre_del_que_cumple: string = '';
   constructor(private router: Router, public storageService: StorageService) {
 
     // this.step="1";
@@ -120,7 +122,7 @@ export class HomePage {
     localStorage.setItem('realAge', this.realAge.toString());
 
     // ya no es necesario guardar realAge aquí porque se guarda automáticamente al cambiar
-    this.router.navigate(['/step2']);
+    this.router.navigate(['/step3']);
   }
 
   cambio_mes_shower() {
@@ -130,6 +132,24 @@ export class HomePage {
 
   step2() {
     this.step = '2';
+  }
+
+    togglenuevo() {
+    if (this.mostrarNombre) {
+
+      localStorage.setItem('cached_ocultar_nombre', 'no');
+    }
+    else {
+      localStorage.setItem('cached_ocultar_nombre', 'si');
+    }
+
+  }
+
+  cambio_nombre() {
+        var nombre = this.nombre_del_que_cumple;
+      localStorage.setItem('cached_nombre_del_que_cumple', nombre);
+
+
   }
 
 }

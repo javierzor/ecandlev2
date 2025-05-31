@@ -37,6 +37,7 @@ export class Step3Page {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearPortrait();
+
   }
 
     bloquearPortrait() {
@@ -76,7 +77,7 @@ export class Step3Page {
   }
 
   atras() {
-    this.navCtrl.navigateRoot('/step2');
+    this.navCtrl.navigateRoot('/home');
   }
   console() {
     console.log('console')

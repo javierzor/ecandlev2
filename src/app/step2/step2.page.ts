@@ -21,9 +21,12 @@ export class Step2Page {
   mostrarNombre: boolean = false;
   nombre_del_que_cumple: string = '';
 
-  constructor(private router: Router, private alertController: AlertController, public storageService: StorageService) { }
+  constructor(private router: Router, private alertController: AlertController, public storageService: StorageService) 
+  {     
+}
 
   ngAfterViewInit() {
+  
     const observer = new MutationObserver((mutations) => {
       console.log('Cambios detectados en el contenido:', mutations);
       this.vercambios();
@@ -217,27 +220,6 @@ async mostrarAlertaColorRepetido() {
   cambio_nombre() {
         var nombre = this.nombre_del_que_cumple;
       localStorage.setItem('cached_nombre_del_que_cumple', nombre);
-
-  //   var nombre = this.nombre_del_que_cumple;
-  //   const longitud = nombre?.length || 0;
-
-  //   if (longitud >= 3 && longitud <= 11) {
-  //     this.nombre_del_que_cumple = nombre;
-  //     this.mostrarNombre = true;
-  //     localStorage.setItem('cached_ocultar_nombre', 'no');
-  //     localStorage.setItem('cached_nombre_del_que_cumple', nombre);
-
-    
-
-  //   }
-  
-  //   else{
-  //     localStorage.setItem('cached_nombre_del_que_cumple', '');
-  //     localStorage.setItem('cached_ocultar_nombre', 'si');
-
-  // }
-
-
 
 
   }
