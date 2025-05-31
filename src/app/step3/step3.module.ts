@@ -14,6 +14,20 @@ import { AnimacioncuatrocompComponent } from "../components/animacioncuatrocomp/
 import { AnimacioncincocompComponent } from "../components/animacioncincocomp/animacioncincocomp.component";
 import { AnimacionseiscompComponent } from '../components/animacionseiscomp/animacionseiscomp.component';
 import { AnimacionsietecompComponent } from "../components/animacionsietecomp/animacionsietecomp.component";
+import { AnimacionochocompComponent } from "../components/animacionochocomp/animacionochocomp.component";
+import { AnimacionnuevecompComponent } from "../components/animacionnuevecomp/animacionnuevecomp.component";
+import { AnimaciondiezcompComponent } from "../components/animaciondiezcomp/animaciondiezcomp.component";
+import { AnimaciononcecompComponent } from "../components/animaciononcecomp/animaciononcecomp.component";
+import { AnimaciondocecompComponent } from "../components/animaciondocecomp/animaciondocecomp.component";
+import { AnimaciontrececompComponent } from "../components/animaciontrececomp/animaciontrececomp.component";
+import { AnimacioncatorcecompComponent } from "../components/animacioncatorcecomp/animacioncatorcecomp.component";
+import { AnimacionquincecompComponent } from "../components/animacionquincecomp/animacionquincecomp.component";
+import { AnimaciondiesiseiscompComponent } from "../components/animaciondiesiseiscomp/animaciondiesiseiscomp.component";
+import { AnimaciondiesisietecompComponent } from "../components/animaciondiesisietecomp/animaciondiesisietecomp.component";
+import { AnimaciondiesiochocompComponent } from "../components/animaciondiesiochocomp/animaciondiesiochocomp.component";
+import { AnimaciondiesinuevecompComponent } from "../components/animaciondiesinuevecomp/animaciondiesinuevecomp.component";
+import { AnimacionveintecompComponent } from "../components/animacionveintecomp/animacionveintecomp.component";
+import { AnimacionveintiunocompComponent } from "../components/animacionveintiunocomp/animacionveintiunocomp.component";
 
 @NgModule({
   imports: [
@@ -27,7 +41,21 @@ import { AnimacionsietecompComponent } from "../components/animacionsietecomp/an
     AnimacioncuatrocompComponent,
     AnimacioncincocompComponent,
     AnimacionseiscompComponent,
-    AnimacionsietecompComponent
+    AnimacionsietecompComponent,
+    AnimacionochocompComponent,
+    AnimacionnuevecompComponent,
+    AnimaciondiezcompComponent,
+    AnimaciononcecompComponent,
+    AnimaciondocecompComponent,
+    AnimaciontrececompComponent,
+    AnimacioncatorcecompComponent,
+    AnimacionquincecompComponent,
+    AnimaciondiesiseiscompComponent,
+    AnimaciondiesisietecompComponent,
+    AnimaciondiesiochocompComponent,
+    AnimaciondiesinuevecompComponent,
+    AnimacionveintecompComponent,
+    AnimacionveintiunocompComponent
 ],
   declarations: [Step3Page]
 })
