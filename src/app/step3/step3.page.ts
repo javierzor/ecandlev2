@@ -3,6 +3,10 @@ import { ModalController, NavController } from '@ionic/angular';
 import { AnimationService } from '../services/animation.service';
 import { StorageService } from '../services/storage.service';
 import { ModalchangefontPage } from '../modals/modalchangefont/modalchangefont.page';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+import { Capacitor } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
+import { Insomnia } from '@awesome-cordova-plugins/insomnia/ngx';
 
 @Component({
   selector: 'app-step3',
@@ -23,13 +27,37 @@ export class Step3Page {
     private animationService: AnimationService,
     public storageService: StorageService,
     private modalController: ModalController,
+    private screenOrientation: ScreenOrientation,
+    private platform: Platform,
+    private insomnia: Insomnia
   ) { }
 
 
   ionViewWillEnter() {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
+    this.bloquearPortrait();
   }
+
+    bloquearPortrait() {
+      // Solo intentar cambiar orientación si es Android o iOS
+      if (
+        Capacitor.getPlatform() === 'android' ||
+        Capacitor.getPlatform() === 'ios'
+      ) {
+        this.platform.ready().then(() => {
+          try {
+            this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
+              .then(() => console.log('Orientación bloqueada a horizontal'))
+              .catch(err => console.warn('No se pudo bloquear orientación:', err));
+          } catch (e) {
+            console.warn('Error en orientación:', e);
+          }
+        });
+      } else {
+        console.log('Orientación no forzada: estamos en navegador');
+      }
+    }
 
   ngOnInit() {
     this.storageService.loadCache();
