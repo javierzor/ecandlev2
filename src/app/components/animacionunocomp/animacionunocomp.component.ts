@@ -1,3 +1,7 @@
+
+
+
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -5,8 +9,9 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'app-animacionunocomp',
   templateUrl: './animacionunocomp.component.html',
   styleUrls: ['./animacionunocomp.component.scss'],
-  standalone: true
-
+  standalone: true,
+  imports:[		CommonModule,
+]
 })
 export class AnimacionunocompComponent implements OnInit {
   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;

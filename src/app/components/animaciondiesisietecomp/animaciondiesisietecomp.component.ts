@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -5,6 +7,8 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'app-animaciondiesisietecomp',
   templateUrl: './animaciondiesisietecomp.component.html',
   styleUrls: ['./animaciondiesisietecomp.component.scss'],
+      imports:[		CommonModule,]
+
 })
 export class AnimaciondiesisietecompComponent implements OnInit {
 
@@ -26,7 +30,7 @@ export class AnimaciondiesisietecompComponent implements OnInit {
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
-    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || 'Invitado';
+    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || '';
   }
 
   ngAfterViewInit(): void {
@@ -49,6 +53,7 @@ export class AnimaciondiesisietecompComponent implements OnInit {
   }
 
   setupInteractionFallback(videoEl: HTMLVideoElement) {
+
     if (this.interactionHandler) return;
 
     this.interactionHandler = () => {

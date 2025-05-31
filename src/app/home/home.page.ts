@@ -121,6 +121,13 @@ export class HomePage {
     localStorage.setItem('language', this.selectedLanguage);
     localStorage.setItem('realAge', this.realAge.toString());
 
+    const cachedshowermesesload = localStorage.getItem('cached_ocultar_nombre');
+    if(!cachedshowermesesload){
+    localStorage.setItem('cached_ocultar_nombre', 'si');
+
+    }
+
+
     // ya no es necesario guardar realAge aquí porque se guarda automáticamente al cambiar
     this.router.navigate(['/step3']);
   }

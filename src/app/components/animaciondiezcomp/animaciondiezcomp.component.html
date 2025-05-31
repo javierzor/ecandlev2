@@ -10,8 +10,10 @@
   </video>
 
   <div class="overlay-content">
-    <h1 class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ age }}</h1>
+    <h1 *ngIf="this.storageService.data['realAge']!='0'" class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ age }}</h1>
+        <h1 *ngIf="this.storageService.data['realAge']==='0'" class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ this.storageService.data['cached_shower_meses'] }}&nbsp;&nbsp;<sub>Mes</sub></h1>
+
     <h2 class="birthday-text" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ birthdayText }}</h2>
-    <h3 class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ name }}</h3>
+    <h3 *ngIf="this.storageService.data['cached_ocultar_nombre']!='si'" class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ name }}</h3>
   </div>
 </div>

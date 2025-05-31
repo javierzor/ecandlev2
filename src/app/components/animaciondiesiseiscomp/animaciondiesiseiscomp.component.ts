@@ -1,3 +1,6 @@
+
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -5,6 +8,8 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'app-animaciondiesiseiscomp',
   templateUrl: './animaciondiesiseiscomp.component.html',
   styleUrls: ['./animaciondiesiseiscomp.component.scss'],
+      imports:[		CommonModule,]
+
 })
 export class AnimaciondiesiseiscompComponent implements OnInit {
   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
@@ -24,7 +29,7 @@ export class AnimaciondiesiseiscompComponent implements OnInit {
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
-    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || 'Invitado';
+    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || '';
   }
 
   ngAfterViewInit(): void {

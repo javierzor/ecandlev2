@@ -1,3 +1,6 @@
+import { CommonModule } from '@angular/common';
+
+
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -6,6 +9,9 @@ import { StorageService } from 'src/app/services/storage.service';
   selector: 'app-animacionnuevecomp',
   templateUrl: './animacionnuevecomp.component.html',
   styleUrls: ['./animacionnuevecomp.component.scss'],
+
+      imports:[		CommonModule,]
+
 })
 export class AnimacionnuevecompComponent  implements OnInit {
 
@@ -27,7 +33,7 @@ export class AnimacionnuevecompComponent  implements OnInit {
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
-    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || 'Invitado';
+    this.name = this.storageService.data['cached_nombre_del_que_cumple'] || '';
   }
 
   ngAfterViewInit(): void {

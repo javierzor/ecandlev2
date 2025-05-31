@@ -42,6 +42,7 @@ export class StorageService {
     const language = localStorage.getItem('language') || 'es';
     const birthdayText = language === 'en' ? 'Happy Birthday' : 'Feliz Cumpleaños';
 
+    const cached_shower_meses = localStorage.getItem('cached_shower_meses') || '1';
 
 
     this.data = {
@@ -57,7 +58,9 @@ export class StorageService {
       animacion_seleccionada: localStorage.getItem('animacion_seleccionada') || '',
       birthdayText: birthdayText, // <-- agregado
       realAge: ageStr, // <-- opcional si necesitas mostrar la original,
-      font_family_dinamico: localStorage.getItem('cached_font_family') || 'uno'
+      font_family_dinamico: localStorage.getItem('cached_font_family') || 'uno',
+            cached_shower_meses: cached_shower_meses, // <-- opcional si necesitas mostrar la original,
+
     };
 
     if (age < 1) {
