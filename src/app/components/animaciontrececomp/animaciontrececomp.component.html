@@ -10,8 +10,8 @@
   </video>
 
   <div class="overlay-content">
-    <h1 class="age">{{ age }}</h1>
-    <h2 class="birthday-text">{{ birthdayText }}</h2>
-    <h3 class="name">{{ name }}</h3>
+    <h1 class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ age }}</h1>
+    <h2 class="birthday-text" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ birthdayText }}</h2>
+    <h3 class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ name }}</h3>
   </div>
 </div>
