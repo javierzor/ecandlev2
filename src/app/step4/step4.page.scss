@@ -1,8 +1,55 @@
-.animation-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    text-align: center;
+.rotate-hint {
+  display: none;
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  text-align: center;
+
+  .rotate-text {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    box-shadow: 0 0 10px #4b4b4b;
+    text-shadow: 0 0 6px #00ffe1;
+    animation: pulse 1.8s infinite;
   }
-  
+
+  img {
+    width: 140px;
+    max-width: 80vw;
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px #3f3f3f);
+  }
+}
+
+// Mostrar solo cuando la pantalla esté en vertical (alto > ancho)
+@media screen and (max-aspect-ratio: 1/1) {
+  .rotate-hint {
+    display: block;
+  }
+}
+
+// Animación de latido/pulso
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
