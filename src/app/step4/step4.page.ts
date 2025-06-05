@@ -23,6 +23,8 @@ export class Step4Page {
 
   private animation: AnimationItem;
   selected_animation: string = '1';
+  pagina: number = 1
+
   constructor(
     private navCtrl: NavController,
     private animationService: AnimationService,

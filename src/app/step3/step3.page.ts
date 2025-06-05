@@ -22,6 +22,9 @@ export class Step3Page {
   color2 = localStorage.getItem('color2') || '#3f51b5';
   seleccionada: string = localStorage.getItem('animacion_seleccionada') || '1';
   esperar_click_cambiar_fuente: boolean = false;
+  pagina: number = 1
+  // En Step3Page
+  visibleAnimations: string[] = []; // Animaciones visibles progresivamente
   constructor(
     private navCtrl: NavController,
     private animationService: AnimationService,
@@ -40,29 +43,31 @@ export class Step3Page {
 
   }
 
-    bloquearPortrait() {
-      // Solo intentar cambiar orientación si es Android o iOS
-      if (
-        Capacitor.getPlatform() === 'android' ||
-        Capacitor.getPlatform() === 'ios'
-      ) {
-        this.platform.ready().then(() => {
-          try {
-            this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
-              .then(() => console.log('Orientación bloqueada a horizontal'))
-              .catch(err => console.warn('No se pudo bloquear orientación:', err));
-          } catch (e) {
-            console.warn('Error en orientación:', e);
-          }
-        });
-      } else {
-        console.log('Orientación no forzada: estamos en navegador');
-      }
+  bloquearPortrait() {
+    // Solo intentar cambiar orientación si es Android o iOS
+    if (
+      Capacitor.getPlatform() === 'android' ||
+      Capacitor.getPlatform() === 'ios'
+    ) {
+      this.platform.ready().then(() => {
+        try {
+          this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
+            .then(() => console.log('Orientación bloqueada a horizontal'))
+            .catch(err => console.warn('No se pudo bloquear orientación:', err));
+        } catch (e) {
+          console.warn('Error en orientación:', e);
+        }
+      });
+    } else {
+      console.log('Orientación no forzada: estamos en navegador');
     }
+  }
 
   ngOnInit() {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
+    this.revelarProgresivamente();
+
   }
 
   seleccionar_animacion(numero: string) {
@@ -91,10 +96,10 @@ export class Step3Page {
 
 
   async AbrirModalLogin() {
-          this.esperar_click_cambiar_fuente=true;
+    this.esperar_click_cambiar_fuente = true;
 
     setTimeout(() => {
-      this.esperar_click_cambiar_fuente=false;
+      this.esperar_click_cambiar_fuente = false;
     }, 3000);
     const modal = await this.modalController.create({
       component: ModalchangefontPage,
@@ -115,6 +120,41 @@ export class Step3Page {
   }
 
 
+  subirpagina() {
+    if (this.pagina < 3) {
+      this.pagina++;
+      this.revelarProgresivamente(); // Reiniciar animaciones visibles
+
+
+    }
+  }
+  bajarpagina() {
+
+    if (this.pagina > 1) {
+      this.pagina--;
+      this.revelarProgresivamente(); // Reiniciar animaciones visibles
+
+
+    }
+  }
+
+  revelarProgresivamente() {
+    const paginaActual = this.pagina;
+    const startIndex = (paginaActual - 1) * 8 + 1; // si tienes 8 por página
+    const endIndex = paginaActual * 8;
+
+    this.visibleAnimations = [];
+
+    let i = startIndex;
+    const intervalo = setInterval(() => {
+      if (i <= endIndex && i <= 21) {
+        this.visibleAnimations.push(i.toString());
+        i++;
+      } else {
+        clearInterval(intervalo);
+      }
+    }, 500); // 1000ms = 1 segundo por animación
+  }
 
 
 }

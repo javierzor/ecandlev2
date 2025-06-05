@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="secondary">
       <ion-button (click)="atras()" fill="outline">
@@ -13,13 +13,13 @@
       </ion-button>
     </ion-buttons>
     <ion-title>
-            <ion-button [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()" fill="outline">
-                    <ion-icon size="small"   name="text-outline"></ion-icon>
+      <ion-button [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()" fill="outline">
+        <ion-icon size="small" name="text-outline"></ion-icon>
 
-</ion-button>
+      </ion-button>
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content class="ion-padding">
 
@@ -33,164 +33,212 @@
       </ion-col>
     </ion-row> -->
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('1')" [ngClass]="{ 'seleccionada': seleccionada === '1' }">
-        <div class="anim-wrapper">
-          <app-animacionunocomp></app-animacionunocomp>
-        </div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('2')" [ngClass]="{ 'seleccionada': seleccionada === '2' }">
-        <div class="anim-wrapper">
-          <app-animaciondoscomp></app-animaciondoscomp>
-        </div>
-      </ion-col>
-    </ion-row>
+    <ng-container *ngIf="pagina===1">
 
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('3')" [ngClass]="{ 'seleccionada': seleccionada === '3' }">
-        <div class="anim-wrapper">
-          <app-animaciontrescomp></app-animaciontrescomp>
-        </div>
-      </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('4')" [ngClass]="{ 'seleccionada': seleccionada === '4' }">
-        <div class="anim-wrapper">
-          <app-animacioncuatrocomp></app-animacioncuatrocomp>
-        </div>
-      </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('5')" [ngClass]="{ 'seleccionada': seleccionada === '5' }">
-        <div class="anim-wrapper">
-          <app-animacioncincocomp></app-animacioncincocomp>
-        </div>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('1')" [ngClass]="{ 'seleccionada': seleccionada === '1' }">
+          <div class="anim-wrapper">
+            <app-animacionunocomp *ngIf="visibleAnimations.includes('1')"></app-animacionunocomp>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('6')" [ngClass]="{ 'seleccionada': seleccionada === '6' }">
-        <div class="anim-wrapper">
-          <app-animacionseiscomp></app-animacionseiscomp>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('7')" [ngClass]="{ 'seleccionada': seleccionada === '7' }">
-        <div class="anim-wrapper">
-          <app-animacionsietecomp></app-animacionsietecomp>
-        </div>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('2')" [ngClass]="{ 'seleccionada': seleccionada === '2' }">
+          <div class="anim-wrapper">
+            <app-animaciondoscomp *ngIf="visibleAnimations.includes('2')"></app-animaciondoscomp>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('8')" [ngClass]="{ 'seleccionada': seleccionada === '8' }">
-        <div class="anim-wrapper">
-          <app-animacionochocomp></app-animacionochocomp>
-        </div>
-      </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('9')" [ngClass]="{ 'seleccionada': seleccionada === '9' }">
-        <div class="anim-wrapper">
-          <app-animacionnuevecomp></app-animacionnuevecomp>
-        </div>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('3')" [ngClass]="{ 'seleccionada': seleccionada === '3' }">
+          <div class="anim-wrapper">
+            <app-animaciontrescomp *ngIf="visibleAnimations.includes('3')"></app-animaciontrescomp>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('10')" [ngClass]="{ 'seleccionada': seleccionada === '10' }">
-        <div class="anim-wrapper">
-          <app-animaciondiezcomp></app-animaciondiezcomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('11')" [ngClass]="{ 'seleccionada': seleccionada === '11' }">
-        <div class="anim-wrapper">
-          <app-animaciononcecomp></app-animaciononcecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('12')" [ngClass]="{ 'seleccionada': seleccionada === '12' }">
-        <div class="anim-wrapper">
-          <app-animaciondocecomp></app-animaciondocecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('13')" [ngClass]="{ 'seleccionada': seleccionada === '13' }">
-        <div class="anim-wrapper">
-          <app-animaciontrececomp></app-animaciontrececomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('14')" [ngClass]="{ 'seleccionada': seleccionada === '14' }">
-        <div class="anim-wrapper">
-          <app-animacioncatorcecomp></app-animacioncatorcecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('15')" [ngClass]="{ 'seleccionada': seleccionada === '15' }">
-        <div class="anim-wrapper">
-          <app-animacionquincecomp></app-animacionquincecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('16')" [ngClass]="{ 'seleccionada': seleccionada === '16' }">
-        <div class="anim-wrapper">
-          <app-animaciondiesiseiscomp></app-animaciondiesiseiscomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('17')" [ngClass]="{ 'seleccionada': seleccionada === '17' }">
-        <div class="anim-wrapper">
-          <app-animaciondiesisietecomp></app-animaciondiesisietecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('18')" [ngClass]="{ 'seleccionada': seleccionada === '18' }">
-        <div class="anim-wrapper">
-          <app-animaciondiesiochocomp></app-animaciondiesiochocomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('19')" [ngClass]="{ 'seleccionada': seleccionada === '19' }">
-        <div class="anim-wrapper">
-          <app-animaciondiesinuevecomp></app-animaciondiesinuevecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('20')" [ngClass]="{ 'seleccionada': seleccionada === '20' }">
-        <div class="anim-wrapper">
-          <app-animacionveintecomp></app-animacionveintecomp>
-        </div>
-      </ion-col>
-    </ion-row>
-        <ion-row>
-      <ion-col size="12" (click)="seleccionar_animacion('21')" [ngClass]="{ 'seleccionada': seleccionada === '21' }">
-        <div class="anim-wrapper">
-          <app-animacionveintiunocomp></app-animacionveintiunocomp>
-        </div>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('4')" [ngClass]="{ 'seleccionada': seleccionada === '4' }">
+          <div class="anim-wrapper">
+            <app-animacioncuatrocomp *ngIf="visibleAnimations.includes('4')"></app-animacioncuatrocomp>
+          </div>
+        </ion-col>
+      </ion-row>
 
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('5')" [ngClass]="{ 'seleccionada': seleccionada === '5' }">
+          <div class="anim-wrapper">
+            <app-animacioncincocomp *ngIf="visibleAnimations.includes('5')"></app-animacioncincocomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('6')" [ngClass]="{ 'seleccionada': seleccionada === '6' }">
+          <div class="anim-wrapper">
+            <app-animacionseiscomp *ngIf="visibleAnimations.includes('6')"></app-animacionseiscomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('7')" [ngClass]="{ 'seleccionada': seleccionada === '7' }">
+          <div class="anim-wrapper">
+            <app-animacionsietecomp *ngIf="visibleAnimations.includes('7')"></app-animacionsietecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('8')" [ngClass]="{ 'seleccionada': seleccionada === '8' }">
+          <div class="anim-wrapper">
+            <app-animacionochocomp *ngIf="visibleAnimations.includes('8')"></app-animacionochocomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ng-container>
+
+    <ng-container *ngIf="pagina===2">
+
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('9')" [ngClass]="{ 'seleccionada': seleccionada === '9' }">
+          <div class="anim-wrapper">
+            <app-animacionnuevecomp *ngIf="visibleAnimations.includes('9')"></app-animacionnuevecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('10')" [ngClass]="{ 'seleccionada': seleccionada === '10' }">
+          <div class="anim-wrapper">
+            <app-animaciondiezcomp *ngIf="visibleAnimations.includes('10')"></app-animaciondiezcomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('11')" [ngClass]="{ 'seleccionada': seleccionada === '11' }">
+          <div class="anim-wrapper">
+            <app-animaciononcecomp *ngIf="visibleAnimations.includes('11')"></app-animaciononcecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('12')" [ngClass]="{ 'seleccionada': seleccionada === '12' }">
+          <div class="anim-wrapper">
+            <app-animaciondocecomp *ngIf="visibleAnimations.includes('12')"></app-animaciondocecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('13')" [ngClass]="{ 'seleccionada': seleccionada === '13' }">
+          <div class="anim-wrapper">
+            <app-animaciontrececomp *ngIf="visibleAnimations.includes('13')"></app-animaciontrececomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('14')" [ngClass]="{ 'seleccionada': seleccionada === '14' }">
+          <div class="anim-wrapper">
+            <app-animacioncatorcecomp *ngIf="visibleAnimations.includes('14')"></app-animacioncatorcecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('15')" [ngClass]="{ 'seleccionada': seleccionada === '15' }">
+          <div class="anim-wrapper">
+            <app-animacionquincecomp *ngIf="visibleAnimations.includes('15')"></app-animacionquincecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('16')" [ngClass]="{ 'seleccionada': seleccionada === '16' }">
+          <div class="anim-wrapper">
+            <app-animaciondiesiseiscomp *ngIf="visibleAnimations.includes('16')"></app-animaciondiesiseiscomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ng-container>
+    <ng-container *ngIf="pagina===3">
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('17')" [ngClass]="{ 'seleccionada': seleccionada === '17' }">
+          <div class="anim-wrapper">
+            <app-animaciondiesisietecomp *ngIf="visibleAnimations.includes('17')"></app-animaciondiesisietecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('18')" [ngClass]="{ 'seleccionada': seleccionada === '18' }">
+          <div class="anim-wrapper">
+            <app-animaciondiesiochocomp *ngIf="visibleAnimations.includes('18')"></app-animaciondiesiochocomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('19')" [ngClass]="{ 'seleccionada': seleccionada === '19' }">
+          <div class="anim-wrapper">
+            <app-animaciondiesinuevecomp *ngIf="visibleAnimations.includes('19')"></app-animaciondiesinuevecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('20')" [ngClass]="{ 'seleccionada': seleccionada === '20' }">
+          <div class="anim-wrapper">
+            <app-animacionveintecomp *ngIf="visibleAnimations.includes('20')"></app-animacionveintecomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('21')" [ngClass]="{ 'seleccionada': seleccionada === '21' }">
+          <div class="anim-wrapper">
+            <app-animacionveintiunocomp *ngIf="visibleAnimations.includes('21')"></app-animacionveintiunocomp>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
   </ion-grid>
   <ion-grid>
   </ion-grid>
+
+
+  <div style="text-align: center; margin-top: 20px;">
+    <ion-button (click)="bajarpagina()" *ngIf="pagina>1">
+      ◀ {{ pagina -1}}
+    </ion-button>
+    Página {{ pagina }} / 3
+    <ion-button (click)="subirpagina()"  *ngIf="pagina<3">
+      {{ pagina +1}} ▶
+    </ion-button> 
+  </div>
+
 </ion-content>
+
+
+<ion-footer>
+
+
+
+  <div style="text-align: center; margin-top: 20px;">
+      <ion-button style="margin-right:10px" [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()" fill="outline">
+        <ion-icon size="small" name="text-outline"></ion-icon>
+
+      </ion-button>
+    
+    <ion-button (click)="atras()">
+      ◀ Anterior
+    </ion-button>
+    
+    <ion-button (click)="selectAnimation()">
+      Siguiente ▶
+    </ion-button>
+  </div>
+
+</ion-footer>

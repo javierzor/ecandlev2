@@ -22,7 +22,7 @@ export class HomePage {
   ];
   shower_meses: string = "1";
   step: string;
-    mostrarNombre: boolean = false;
+  mostrarNombre: boolean;
   nombre_del_que_cumple: string = '';
   constructor(private router: Router, public storageService: StorageService) {
 
@@ -57,12 +57,29 @@ export class HomePage {
     // ✅ Leer idioma o usar 'es'
     const cachedshowermesesload = localStorage.getItem('cached_shower_meses');
     this.shower_meses = cachedshowermesesload || '1';
+    const here_cached_ocultar_nombre = localStorage.getItem('cached_ocultar_nombre');
+
+    if (here_cached_ocultar_nombre === 'si') {
+      this.mostrarNombre = false;
+    } else {
+      this.mostrarNombre = true; // ✅ establecer por defecto en true
+    }
 
 
   }
 
   ionViewWillEnter() {
     localStorage.setItem('cached_shower_meses', this.shower_meses);
+
+
+    const here_cached_ocultar_nombre = localStorage.getItem('cached_ocultar_nombre');
+    // this.mostrarNombre = savedValue === 'si';
+    if (here_cached_ocultar_nombre === 'si') {
+      this.mostrarNombre = false;
+    } else {
+      this.mostrarNombre = true; // ✅ establecer por defecto en true
+    }
+
 
   }
 
@@ -122,8 +139,8 @@ export class HomePage {
     localStorage.setItem('realAge', this.realAge.toString());
 
     const cachedshowermesesload = localStorage.getItem('cached_ocultar_nombre');
-    if(!cachedshowermesesload){
-    localStorage.setItem('cached_ocultar_nombre', 'si');
+    if (!cachedshowermesesload) {
+      localStorage.setItem('cached_ocultar_nombre', 'si');
 
     }
 
@@ -141,7 +158,7 @@ export class HomePage {
     this.step = '2';
   }
 
-    togglenuevo() {
+  togglenuevo() {
     if (this.mostrarNombre) {
 
       localStorage.setItem('cached_ocultar_nombre', 'no');
@@ -153,8 +170,8 @@ export class HomePage {
   }
 
   cambio_nombre() {
-        var nombre = this.nombre_del_que_cumple;
-      localStorage.setItem('cached_nombre_del_que_cumple', nombre);
+    var nombre = this.nombre_del_que_cumple;
+    localStorage.setItem('cached_nombre_del_que_cumple', nombre);
 
 
   }

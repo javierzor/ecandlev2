@@ -28,7 +28,7 @@ export class AnimaciondiesinuevecompComponent  implements OnInit {
 
   ngOnInit(): void {
     const id = this.storageService.data['animacion_seleccionada'] || '1';
-    this.videoSrc = `assets/videosdefondo/19.mp4`;
+    this.videoSrc = `assets/19.mp4`;
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
