@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'modalchangefont',
     loadChildren: () => import('./modals/modalchangefont/modalchangefont.module').then( m => m.ModalchangefontPageModule)
   },
+  {
+    path: 'modalchangecolorfont',
+    loadChildren: () => import('./modals/modalchangecolorfont/modalchangecolorfont.module').then( m => m.ModalchangecolorfontPageModule)
+  },
 
 ];
 

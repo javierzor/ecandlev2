@@ -97,6 +97,7 @@
   font-weight: bolder;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'ocho';
   src: url('assets/fonts/8.ttf');
@@ -190,4 +191,25 @@
   .ocultar_celulares {
     display: none !important;
   }
+}
+
+
+.agebaby {
+  // margin-top:-5vh;
+  // font-size: 8rem;
+  font-weight: bold;
+  // line-height:2;
+}
+
+
+.age {
+  // margin-top:-5vh;
+  // font-size: 9rem;
+  font-weight: bold;
+  // line-height: 5.5rem;
+}
+
+
+.contenedoranimacion {
+  margin-top: -4vh;
 }

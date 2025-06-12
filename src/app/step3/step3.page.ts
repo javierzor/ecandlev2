@@ -7,6 +7,7 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 import { Insomnia } from '@awesome-cordova-plugins/insomnia/ngx';
+import { ModalchangecolorfontPage } from '../modals/modalchangecolorfont/modalchangecolorfont.page';
 
 @Component({
   selector: 'app-step3',
@@ -40,7 +41,7 @@ export class Step3Page {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearPortrait();
-
+    this.storageService.esta_en_paso3_o_paso4='paso_3';
   }
 
   bloquearPortrait() {
@@ -155,6 +156,41 @@ export class Step3Page {
       }
     }, 500); // 1000ms = 1 segundo por animación
   }
+
+
+
+
+
+  async AbrirModalLoginv2() {
+    this.esperar_click_cambiar_fuente = true;
+
+    setTimeout(() => {
+      this.esperar_click_cambiar_fuente = false;
+    }, 3000);
+    const modal = await this.modalController.create({
+      component: ModalchangecolorfontPage,
+      cssClass: 'transparent-background',
+
+      componentProps: {
+        'dataparaelmodal': 'nodata'
+      },
+      initialBreakpoint: 0.85,
+      breakpoints: [0.55, 0.65, 0.75, 0.85, 0.95],
+    });
+    modal.onDidDismiss().then((data) => {
+      console.log('data', data);
+    });
+
+
+    return await modal.present();
+  }
+
+
+changecolorfont(){
+    console.log('changing font...')
+    this.AbrirModalLoginv2();
+}
+
 
 
 }

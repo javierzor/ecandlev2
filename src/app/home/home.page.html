@@ -1,16 +1,15 @@
-<ion-header>
-  <ion-toolbar class="ion-text-center">
-    <ion-title>eCandle</ion-title>
-  </ion-toolbar>
 
-
-  <ion-fab-button (click)="this.storageService.compartir()" style="position:absolute; top:3px; right:4px;z-index: 222;">
-    <ion-icon name="share-social"> </ion-icon>
-  </ion-fab-button>
-
-</ion-header>
 
 <ion-content class="ion-padding">
+
+  <!-- <div class="ion-text-center">
+    <h2 style="color:#808080">eCandle</h2>
+  </div> -->
+  <br>
+  <br>
+  <ion-fab-button (click)="this.storageService.compartir()" style="position:absolute; top:13px; right:4px;z-index: 222;">
+    <ion-icon name="share-social"> </ion-icon>
+  </ion-fab-button>
 
   <section *ngIf="step === '1'" class="step-container">
     <div class="fondo-estrellas">

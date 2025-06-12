@@ -231,6 +231,13 @@
         <ion-icon size="small" name="text-outline"></ion-icon>
 
       </ion-button>
+
+            <ion-button color="light" style="margin-right:10px" [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changecolorfont()" fill="outline">
+        
+              <a  [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">A</a>
+              
+
+      </ion-button>
     
     <ion-button (click)="atras()">
       ◀ Anterior

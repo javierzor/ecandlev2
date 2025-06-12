@@ -11,7 +11,7 @@ export class StorageService {
 
   public data: { [key: string]: any } = {};
   private isSharing = false;
-
+  esta_en_paso3_o_paso4: string;
 
   constructor(
     public alertController: AlertController
@@ -59,12 +59,24 @@ export class StorageService {
       birthdayText: birthdayText, // <-- agregado
       realAge: ageStr, // <-- opcional si necesitas mostrar la original,
       font_family_dinamico: localStorage.getItem('cached_font_family') || 'uno',
-            cached_shower_meses: cached_shower_meses, // <-- opcional si necesitas mostrar la original,
+      font_color_dinamico: localStorage.getItem('cached_font_family') || '#330000',
+      cached_shower_meses: cached_shower_meses, // <-- opcional si necesitas mostrar la original,
 
     };
 
     if (age < 1) {
-      this.data['birthdayText'] = 'Baby Shower';
+
+      if (localStorage.getItem('language') === 'en') {
+        this.data['birthdayText'] = 'Congratulations';
+        this.data['palabra_mes'] = 'Month';
+
+
+      }
+      else {
+        this.data['birthdayText'] = 'Felicidades';
+        this.data['palabra_mes'] = 'Mes';
+
+      }
 
     }
 

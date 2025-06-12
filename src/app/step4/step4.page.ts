@@ -37,6 +37,7 @@ export class Step4Page {
   ) {
 
     this.bloquearLandscape();
+    this.storageService.esta_en_paso3_o_paso4='paso_4';
 
   }
 
@@ -72,6 +73,7 @@ export class Step4Page {
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearLandscape();
     this.restringirbloqueoconinsonmia();
+    this.storageService.esta_en_paso3_o_paso4='paso_4';
 
 
   }
