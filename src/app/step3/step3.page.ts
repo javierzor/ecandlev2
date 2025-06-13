@@ -26,6 +26,10 @@ export class Step3Page {
   pagina: number = 1
   // En Step3Page
   visibleAnimations: string[] = []; // Animaciones visibles progresivamente
+  inverted_color_jeje: string;
+
+
+  
   constructor(
     private navCtrl: NavController,
     private animationService: AnimationService,
@@ -36,12 +40,35 @@ export class Step3Page {
     private insomnia: Insomnia
   ) { }
 
+  
 
   ionViewWillEnter() {
     this.storageService.loadCache();
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearPortrait();
     this.storageService.esta_en_paso3_o_paso4='paso_3';
+
+
+    this.invertircolor();
+
+
+  }
+
+  invertircolor(){
+            const invertColor = (hexValue) => {
+            let hex = hexValue.replace(/^#/, '');
+            if (hex.length === 3) hex = hex.replace(/./g, '$&$&'); // Expand if shorthand
+            if (hex.length !== 6) throw new Error(`Invalid HEX color: ${hexValue}`);
+
+            const num = parseInt(hex, 16);
+            const invertedNum = 0xFFFFFF ^ num; // XOR with full white (all bits set)
+            return `#${invertedNum.toString(16).padStart(6, '0')}`;
+        };
+
+        const originalColor = this.storageService.data['font_color_dinamico']; // Red
+        const invertedColor = invertColor(originalColor); // Should be #00FFFF (Cyan)
+        console.log(invertedColor);
+        this.inverted_color_jeje = invertedColor;
   }
 
   bloquearPortrait() {
@@ -179,6 +206,7 @@ export class Step3Page {
     });
     modal.onDidDismiss().then((data) => {
       console.log('data', data);
+      this.invertircolor();
     });
 
 

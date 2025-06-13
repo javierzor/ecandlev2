@@ -116,6 +116,19 @@
     </div>
 
 
+    <ion-fab-button (click)="this.storageService.bajarzoom()" size="small"
+        style="padding:0; position:absolute;left:1px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="remove"></ion-icon>
+    </ion-fab-button>
+
+        <ion-fab-button (click)="this.storageService.subirzoom()" size="small"
+        style="padding:0; position:absolute;right:1px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="add"></ion-icon>
+    </ion-fab-button>
+
+
+
+
     <div class="rotate-hint">
         <div class="rotate-text">🔄 Por favor, gira tu dispositivo</div>
         <img src="assets/gif/rotate-device.gif" alt="Rota el dispositivo">

@@ -30,3 +30,11 @@
   border: 3px solid #3880ff;
   border-radius: 20px;
 }
+
+
+
+.fuenteconshadow {
+  box-shadow: 10px 10px 5px 0px rgba(150, 150, 150, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(150, 150, 150, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(150, 150, 150, 0.75);
+}

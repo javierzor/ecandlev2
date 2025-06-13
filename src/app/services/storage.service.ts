@@ -12,6 +12,7 @@ export class StorageService {
   public data: { [key: string]: any } = {};
   private isSharing = false;
   esta_en_paso3_o_paso4: string;
+  zoom_especial_en_vista: number = 1;
 
   constructor(
     public alertController: AlertController
@@ -59,9 +60,9 @@ export class StorageService {
       birthdayText: birthdayText, // <-- agregado
       realAge: ageStr, // <-- opcional si necesitas mostrar la original,
       font_family_dinamico: localStorage.getItem('cached_font_family') || 'uno',
-      font_color_dinamico: localStorage.getItem('cached_font_family') || '#330000',
+      font_color_dinamico: localStorage.getItem('cached_font_color') || '#330000',
       cached_shower_meses: cached_shower_meses, // <-- opcional si necesitas mostrar la original,
-
+      zoom_en_services: localStorage.getItem('zoom_en_services') || 1,
     };
 
     if (age < 1) {
@@ -179,6 +180,17 @@ export class StorageService {
   }
 
 
+  subirzoom() {
+  
+    this.zoom_especial_en_vista=this.zoom_especial_en_vista+0.02;
+    // this.storageService.data['zoom_en_services'] = this.storageService.data['zoom_en_services'] - 0.1;
+  }
 
+
+
+  bajarzoom() {
+    this.zoom_especial_en_vista=this.zoom_especial_en_vista-0.02;
+
+  }
 
 }

@@ -1,55 +1,137 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Seleccione la fuente</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-no-padding" no-padding>
 
+  <br><br>
 
-  <ion-list class="ion-no-padding" style="margin-left: 20px;" no-padding>
 
-    <ion-item (click)="seleccionar_fuente('uno')" [ngClass]="{ 'seleccionada': seleccionada === 'uno' }" style="font-family:'uno'" class="ion-no-padding" no-padding>
+  <div class="ion-text-center">
+
+
+    <ion-text  (click)="seleccionar_fuente('uno')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'uno' }" style="font-size:small;font-family:'uno'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-    <ion-item (click)="seleccionar_fuente('dos')" [ngClass]="{ 'seleccionada': seleccionada === 'dos' }" style="font-family:'dos'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('dos')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'dos' }" style="font-size:small;font-family:'dos'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-    <ion-item (click)="seleccionar_fuente('tres')" [ngClass]="{ 'seleccionada': seleccionada === 'tres' }" style="font-family:'tres'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('tres')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'tres' }" style="font-size:small;font-family:'tres'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-    <ion-item (click)="seleccionar_fuente('cuatro')" [ngClass]="{ 'seleccionada': seleccionada === 'cuatro' }" style="font-family:'cuatro'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('cuatro')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'cuatro' }" style="font-size:small;font-family:'cuatro'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-        <ion-item (click)="seleccionar_fuente('cinco')" [ngClass]="{ 'seleccionada': seleccionada === 'cinco' }" style="font-family:'cinco'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('cinco')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'cinco' }" style="font-size:small;font-family:'cinco'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-        <ion-item (click)="seleccionar_fuente('seis')" [ngClass]="{ 'seleccionada': seleccionada === 'seis' }" style="font-family:'seis'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('seis')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'seis' }" style="font-size:small;font-family:'seis'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-        <ion-item (click)="seleccionar_fuente('siete')" [ngClass]="{ 'seleccionada': seleccionada === 'siete' }" style="font-family:'siete'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('siete')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'siete' }" style="font-size:small;font-family:'siete'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-        <ion-item (click)="seleccionar_fuente('ocho')" [ngClass]="{ 'seleccionada': seleccionada === 'ocho' }" style="font-family:'ocho'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('ocho')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'ocho' }" style="font-size:small;font-family:'ocho'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-            <ion-item (click)="seleccionar_fuente('nueve')" [ngClass]="{ 'seleccionada': seleccionada === 'nueve' }" style="font-family:'nueve'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('nueve')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'nueve' }" style="font-size:small;font-family:'nueve'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-                <ion-item (click)="seleccionar_fuente('diez')" [ngClass]="{ 'seleccionada': seleccionada === 'diez' }" style="font-family:'diez'" class="ion-no-padding" no-padding>
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('diez')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'diez' }" style="font-size:small;font-family:'diez'"
+      class="ion-no-padding" no-padding>
       {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
       {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
-    </ion-item>
-  </ion-list>
+    </ion-text><br>
+
+
+
+    <ion-text  (click)="seleccionar_fuente('once')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'once' }" style="font-size:small;font-family:'once'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('doce')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'doce' }" style="font-size:small;font-family:'doce'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('trece')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'trece' }" style="font-size:small;font-family:'trece'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('catorce')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'catorce' }" style="font-size:small;font-family:'catorce'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('quince')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'quince' }" style="font-size:small;font-family:'quince'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('diesiseis')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'diesiseis' }" style="font-size:small;font-family:'diesiseis'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('diesisiete')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'diesisiete' }" style="font-size:small;font-family:'diesisiete'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('diesiocho')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'diesiocho' }" style="font-size:small;font-family:'diesiocho'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('diesinueve')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'diesinueve' }" style="font-size:small;font-family:'diesinueve'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+    <ion-text  (click)="seleccionar_fuente('veinte')"
+      [ngClass]="{ 'seleccionada': seleccionada === 'veinte' }" style="font-size:small;font-family:'veinte'"
+      class="ion-no-padding" no-padding>
+      {{this.storageService.data['birthdayText'] || 'Feliz Cumpleaños'}}
+      {{this.storageService.data['cached_nombre_del_que_cumple'] || ''}}
+    </ion-text><br>
+
+  </div>
+
 
 
 </ion-content>

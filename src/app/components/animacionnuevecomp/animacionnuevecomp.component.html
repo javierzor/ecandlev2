@@ -10,10 +10,10 @@
   </video>
 
   <div class="overlay-content">
-    <h1 *ngIf="this.storageService.data['realAge']!='0'" class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ age }}</h1>
-        <h1 *ngIf="this.storageService.data['realAge']==='0'" class="agebaby" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ this.storageService.data['cached_shower_meses'] }}&nbsp;<sub>Mes</sub></h1>
+    <h1 *ngIf="this.storageService.data['realAge']!='0'" class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.FontSize]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.LineHeight]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ age }}</h1>
+        <h1 *ngIf="this.storageService.data['realAge']==='0'" class="agebaby" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.FontSize]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.LineHeight]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ this.storageService.data['cached_shower_meses'] }}&nbsp;<sub>{{ this.storageService.data['palabra_mes'] }}</sub></h1>
 
-    <h2 class="birthday-text" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ birthdayText }}</h2>
-    <h3 *ngIf="this.storageService.data['cached_ocultar_nombre']!='si'" class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'">{{ name }}</h3>
+    <h2 class="birthday-text" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ birthdayText }}</h2>
+    <h3 *ngIf="this.storageService.data['cached_ocultar_nombre']!='si'" class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ name }}</h3>
   </div>
 </div>

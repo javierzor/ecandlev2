@@ -59,6 +59,11 @@ export class HomePage {
     this.shower_meses = cachedshowermesesload || '1';
     const here_cached_ocultar_nombre = localStorage.getItem('cached_ocultar_nombre');
 
+    const nombre_del_que_cumple = localStorage.getItem('cached_nombre_del_que_cumple');
+    this.nombre_del_que_cumple = nombre_del_que_cumple || '';
+
+
+    
     if (here_cached_ocultar_nombre === 'si') {
       this.mostrarNombre = false;
     } else {

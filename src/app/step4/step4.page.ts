@@ -24,7 +24,6 @@ export class Step4Page {
   private animation: AnimationItem;
   selected_animation: string = '1';
   pagina: number = 1
-
   constructor(
     private navCtrl: NavController,
     private animationService: AnimationService,
@@ -37,7 +36,7 @@ export class Step4Page {
   ) {
 
     this.bloquearLandscape();
-    this.storageService.esta_en_paso3_o_paso4='paso_4';
+    this.storageService.esta_en_paso3_o_paso4 = 'paso_4';
 
   }
 
@@ -47,7 +46,7 @@ export class Step4Page {
     console.log('Cache cargado:', this.storageService.data);
     // this.loadLottieAnimation();
   }
-  
+
   bloquearLandscape() {
     // Solo intentar cambiar orientación si es Android o iOS
     if (
@@ -73,7 +72,7 @@ export class Step4Page {
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearLandscape();
     this.restringirbloqueoconinsonmia();
-    this.storageService.esta_en_paso3_o_paso4='paso_4';
+    this.storageService.esta_en_paso3_o_paso4 = 'paso_4';
 
 
   }
@@ -119,6 +118,9 @@ export class Step4Page {
   goBack() {
     this.navCtrl.navigateBack('/step3');
   }
+
+
+
 
 
 }
