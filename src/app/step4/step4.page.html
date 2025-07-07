@@ -121,11 +121,45 @@
         <ion-icon size="small" name="remove"></ion-icon>
     </ion-fab-button>
 
-        <ion-fab-button (click)="this.storageService.subirzoom()" size="small"
+
+
+    <!-- Zoom texto cumpleaños -->
+    <ion-fab-button (click)="storageService.bajarZoomBirthdayText()" size="small"
+        style="padding:0; position:absolute;left:40px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="remove"></ion-icon>
+    </ion-fab-button>
+
+    <!-- Zoom nombre -->
+    <ion-fab-button (click)="storageService.bajarZoomNombre()" size="small"
+        style="padding:0; position:absolute;left:70px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="remove"></ion-icon>
+    </ion-fab-button>
+
+    
+        <ion-fab-button (click)="storageService.subirZoomNombre()" size="small"
+            style="padding:0; position:absolute;right:70px;bottom:1px;z-index: 222;" color="transparent">
+            <ion-icon size="small" name="add"></ion-icon>
+        </ion-fab-button>
+
+    <ion-fab-button (click)="storageService.subirZoomBirthdayText()" size="small"
+        style="padding:0; position:absolute;right:40px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="add"></ion-icon>
+    </ion-fab-button>
+
+
+
+    <ion-fab-button (click)="this.storageService.subirzoom()" size="small"
         style="padding:0; position:absolute;right:1px;bottom:1px;z-index: 222;" color="transparent">
         <ion-icon size="small" name="add"></ion-icon>
     </ion-fab-button>
 
+
+
+    <ion-fab-button (click)="storageService.display_controls()" size="small"
+        style="padding:0; position:absolute;left:50%;bottom:1px;z-index: 222; zoom:0.4" color="transparent">
+        <ion-icon *ngIf="!this.storageService.is_move_controls_on" name="eye-outline"></ion-icon>
+        <ion-icon color="danger" *ngIf="this.storageService.is_move_controls_on" name="eye-off-outline"></ion-icon>
+    </ion-fab-button>
 
 
 

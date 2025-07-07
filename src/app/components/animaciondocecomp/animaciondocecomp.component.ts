@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
-
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
-
 @Component({
   selector: 'app-animaciondocecomp',
   templateUrl: './animaciondocecomp.component.html',
@@ -11,13 +9,17 @@ import { StorageService } from 'src/app/services/storage.service';
 
 })
 export class AnimaciondocecompComponent  implements OnInit {
-
   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
   videoSrc = '';
   age = '';
   birthdayText = '';
   name = '';
+
+ageOffset = 0;
+birthdayOffset = 0;
+nameOffset = 0;
+
 
   private interactionHandler: () => void;
 
@@ -35,7 +37,6 @@ export class AnimaciondocecompComponent  implements OnInit {
   ngAfterViewInit(): void {
     const videoEl = this.bgVideoRef.nativeElement;
 
-    // Intenta reproducir cuando el video está listo
     videoEl.addEventListener('canplay', () => {
       videoEl.play().catch(err => {
         console.warn('Autoplay bloqueado por el navegador:', err);
@@ -43,7 +44,6 @@ export class AnimaciondocecompComponent  implements OnInit {
       });
     });
 
-    // Fallback por si canplay no se dispara
     setTimeout(() => {
       if (videoEl.paused) {
         this.setupInteractionFallback(videoEl);
@@ -76,7 +76,6 @@ export class AnimaciondocecompComponent  implements OnInit {
     });
   }
 
-
   playVideo() {
     const videoEl = this.bgVideoRef?.nativeElement;
     if (videoEl && videoEl.paused) {
@@ -85,5 +84,23 @@ export class AnimaciondocecompComponent  implements OnInit {
       });
     }
   }
+
+moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
+  const delta = direction === 'up' ? -10 : 10;
+
+  switch (type) {
+    case 'age':
+      this.ageOffset += delta;
+      break;
+    case 'birthday':
+      this.birthdayOffset += delta;
+      break;
+    case 'name':
+      this.nameOffset += delta;
+      break;
+  }
+}
+
+
 
 }

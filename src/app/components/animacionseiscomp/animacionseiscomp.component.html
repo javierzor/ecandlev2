@@ -1,19 +1,58 @@
 <div class="video-bg-wrapper" (click)="playVideo()">
-  <video
-    #bgVideo
-    class="background-video"
-    autoplay
-    loop
-    muted
-    playsinline
-    [attr.src]="videoSrc">
+  <video #bgVideo class="background-video" autoplay loop muted playsinline [attr.src]="videoSrc">
   </video>
 
-  <div class="overlay-content" [style.Zoom]="''+this.storageService.zoom_especial_en_vista+''">
-    <h1 *ngIf="this.storageService.data['realAge']!='0'" class="age" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.FontSize]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.LineHeight]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ age }}</h1>
-        <h1 *ngIf="this.storageService.data['realAge']==='0'" class="agebaby" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.FontSize]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.LineHeight]="this.storageService.esta_en_paso3_o_paso4==='paso_4' ? '14rem!important' : '4rem'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ this.storageService.data['cached_shower_meses'] }}&nbsp;<sub>{{ this.storageService.data['palabra_mes'] }}</sub></h1>
+  <div class="overlay-content" [style.Zoom]="'' + storageService.zoom_especial_en_vista + ''">
 
-    <h2 class="birthday-text" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ birthdayText }}</h2>
-    <h3 *ngIf="this.storageService.data['cached_ocultar_nombre']!='si'" class="name" [style.fontFamily]="this.storageService.data['font_family_dinamico'] ? this.storageService.data['font_family_dinamico'] : 'uno'" [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">{{ name }}</h3>
+    <h1 *ngIf="storageService.data['realAge'] != '0'" class="age"
+      [style.fontFamily]="storageService.data['font_family_dinamico'] || 'uno'"
+      [style.fontSize]="storageService.esta_en_paso3_o_paso4 === 'paso_4' ? '14rem' : '4rem'"
+      [style.lineHeight]="storageService.esta_en_paso3_o_paso4 === 'paso_4' ? '14rem' : '4rem'"
+      [style.color]="storageService.data['font_color_dinamico'] || '#FFFFFF'"
+      [ngStyle]="{ transform: 'translateY(' + ageOffset + 'px)' }">
+      {{ age }}
+    </h1>
+
+    <h1 *ngIf="storageService.data['realAge'] === '0'" class="agebaby"
+      [style.fontFamily]="storageService.data['font_family_dinamico'] || 'uno'"
+      [style.fontSize]="storageService.esta_en_paso3_o_paso4 === 'paso_4' ? '14rem' : '4rem'"
+      [style.lineHeight]="storageService.esta_en_paso3_o_paso4 === 'paso_4' ? '14rem' : '4rem'"
+      [style.color]="storageService.data['font_color_dinamico'] || '#FFFFFF'"
+      [ngStyle]="{ transform: 'translateY(' + ageOffset + 'px)' }">
+      {{ storageService.data['cached_shower_meses'] }}&nbsp;
+      <sub>{{ storageService.data['palabra_mes'] }}</sub>
+    </h1>
+
+    <h2 class="birthday-text" [style.fontFamily]="storageService.data['font_family_dinamico'] || 'uno'"
+      [style.color]="storageService.data['font_color_dinamico'] || '#FFFFFF'" [ngStyle]="{
+        transform: 'translateY(' + birthdayOffset + 'px) scale(' + storageService.zoom_birthdaytext_dinamico + ')'
+      }">
+      {{ birthdayText }}
+    </h2>
+
+    <h3 *ngIf="storageService.data['cached_ocultar_nombre'] != 'si'" class="name"
+      [style.fontFamily]="storageService.data['font_family_dinamico'] || 'uno'"
+      [style.color]="storageService.data['font_color_dinamico'] || '#FFFFFF'" [ngStyle]="{
+        transform: 'translateY(' + nameOffset + 'px) scale(' + storageService.zoom_nombre_dinamico + ')'
+      }">
+      {{ name }}
+    </h3>
+
+    <!-- 🔽 Botones de desplazamiento -->
+    <div *ngIf="this.storageService.is_move_controls_on">
+      <div>
+        <button style="position:absolute; right:20%;top:30%" (click)="moveText('age', 'up')">↑ Edad</button>
+        <button style="position:absolute; left:20%;top:30%" (click)="moveText('age', 'down')">↓ Edad</button>
+      </div>
+      <div>
+        <button style="position:absolute; right:20%;top:55%" (click)="moveText('birthday', 'up')">↑ Cumpleaños</button>
+        <button style="position:absolute; left:20%;top:55%" (click)="moveText('birthday', 'down')">↓ Cumpleaños</button>
+      </div>
+      <div>
+        <button style="position:absolute; right:20%;top:76%" (click)="moveText('name', 'up')">↑ Nombre</button>
+        <button style="position:absolute; left:20%;top:76%" (click)="moveText('name', 'down')">↓ Nombre</button>
+      </div>
+    </div>
+
   </div>
 </div>

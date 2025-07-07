@@ -27,8 +27,6 @@ export class Step3Page {
   // En Step3Page
   visibleAnimations: string[] = []; // Animaciones visibles progresivamente
   inverted_color_jeje: string;
-
-
   
   constructor(
     private navCtrl: NavController,
@@ -44,6 +42,12 @@ export class Step3Page {
 
   ionViewWillEnter() {
     this.storageService.loadCache();
+    this.storageService.zoom_especial_en_vista = 1;
+      localStorage.setItem('zoom_birthdaytext_dinamico', "1");
+  localStorage.setItem('zoom_nombre_dinamico', "1");
+    this.storageService.is_move_controls_on=false;
+
+
     console.log('Cache cargado:', this.storageService.data);
     this.bloquearPortrait();
     this.storageService.esta_en_paso3_o_paso4='paso_3';

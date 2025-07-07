@@ -24,6 +24,8 @@ export class Step4Page {
   private animation: AnimationItem;
   selected_animation: string = '1';
   pagina: number = 1
+  zoom_nombre_dinamico: number;
+  zoom_birthdaytext_dinamico: number;
   constructor(
     private navCtrl: NavController,
     private animationService: AnimationService,
@@ -120,7 +122,25 @@ export class Step4Page {
   }
 
 
+subirZoomNombre() {
+  this.zoom_nombre_dinamico += 0.05;
+  localStorage.setItem('zoom_nombre_dinamico', this.zoom_nombre_dinamico.toString());
+}
 
+bajarZoomNombre() {
+  this.zoom_nombre_dinamico -= 0.05;
+  localStorage.setItem('zoom_nombre_dinamico', this.zoom_nombre_dinamico.toString());
+}
+
+subirZoomBirthdayText() {
+  this.zoom_birthdaytext_dinamico += 0.05;
+  localStorage.setItem('zoom_birthdaytext_dinamico', this.zoom_birthdaytext_dinamico.toString());
+}
+
+bajarZoomBirthdayText() {
+  this.zoom_birthdaytext_dinamico -= 0.05;
+  localStorage.setItem('zoom_birthdaytext_dinamico', this.zoom_birthdaytext_dinamico.toString());
+}
 
 
 }

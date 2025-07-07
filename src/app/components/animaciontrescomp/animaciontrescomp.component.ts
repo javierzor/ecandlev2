@@ -1,7 +1,4 @@
-
 import { CommonModule } from '@angular/common';
-
-
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -23,6 +20,11 @@ export class AnimaciontrescompComponent  implements OnInit {
   birthdayText = '';
   name = '';
 
+ageOffset = 0;
+birthdayOffset = 0;
+nameOffset = 0;
+
+
   private interactionHandler: () => void;
 
   constructor(public storageService: StorageService, private zone: NgZone) { }
@@ -39,7 +41,6 @@ export class AnimaciontrescompComponent  implements OnInit {
   ngAfterViewInit(): void {
     const videoEl = this.bgVideoRef.nativeElement;
 
-    // Intenta reproducir cuando el video está listo
     videoEl.addEventListener('canplay', () => {
       videoEl.play().catch(err => {
         console.warn('Autoplay bloqueado por el navegador:', err);
@@ -47,7 +48,6 @@ export class AnimaciontrescompComponent  implements OnInit {
       });
     });
 
-    // Fallback por si canplay no se dispara
     setTimeout(() => {
       if (videoEl.paused) {
         this.setupInteractionFallback(videoEl);
@@ -80,7 +80,6 @@ export class AnimaciontrescompComponent  implements OnInit {
     });
   }
 
-
   playVideo() {
     const videoEl = this.bgVideoRef?.nativeElement;
     if (videoEl && videoEl.paused) {
@@ -89,6 +88,24 @@ export class AnimaciontrescompComponent  implements OnInit {
       });
     }
   }
+
+moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
+  const delta = direction === 'up' ? -10 : 10;
+
+  switch (type) {
+    case 'age':
+      this.ageOffset += delta;
+      break;
+    case 'birthday':
+      this.birthdayOffset += delta;
+      break;
+    case 'name':
+      this.nameOffset += delta;
+      break;
+  }
+}
+
+
 
 
 }
