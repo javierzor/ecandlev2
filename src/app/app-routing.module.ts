@@ -32,6 +32,26 @@ const routes: Routes = [
     path: 'modalchangecolorfont',
     loadChildren: () => import('./modals/modalchangecolorfont/modalchangecolorfont.module').then( m => m.ModalchangecolorfontPageModule)
   },
+  {
+    path: 'animacionveintitrescomp',
+    loadChildren: () => import('./components/animacionveintitrescomp/animacionveintitrescomp.module').then( m => m.AnimacionveintitrescompPageModule)
+  },
+  {
+    path: 'animacionveinticuatrocomp',
+    loadChildren: () => import('./components/animacionveinticuatrocomp/animacionveinticuatrocomp.module').then( m => m.AnimacionveinticuatrocompPageModule)
+  },
+  {
+    path: 'animacionveinticincocomp',
+    loadChildren: () => import('./components/animacionveinticincocomp/animacionveinticincocomp.module').then( m => m.AnimacionveinticincocompPageModule)
+  },
+  {
+    path: 'animacionveintiseiscomp',
+    loadChildren: () => import('./components/animacionveintiseiscomp/animacionveintiseiscomp.module').then( m => m.AnimacionveintiseiscompPageModule)
+  },
+  {
+    path: 'animacionveintisietecomp',
+    loadChildren: () => import('./components/animacionveintisietecomp/animacionveintisietecomp.module').then( m => m.AnimacionveintisietecompPageModule)
+  }
 
 ];
 
