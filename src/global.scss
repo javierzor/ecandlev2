@@ -49,6 +49,9 @@
 //   }
 
 
+
+
+
 @font-face {
   font-family: 'uno';
   src: url('assets/fonts/babybison.otf');
@@ -100,7 +103,7 @@
 
 @font-face {
   font-family: 'ocho';
-  src: url('assets/fonts/8.ttf');
+  src: url('assets/fonts/8.otf');
   font-weight: bolder;
   font-style: normal;
 }
@@ -112,10 +115,9 @@
   font-style: normal;
 }
 
-
 @font-face {
   font-family: 'diez';
-  src: url('assets/fonts/21.ttf');
+  src: url('assets/fonts/10.otf');
   font-weight: bolder;
   font-style: normal;
 }
@@ -136,7 +138,7 @@
 
 @font-face {
   font-family: 'trece';
-  src: url('assets/fonts/22.ttf');
+  src: url('assets/fonts/13.otf');
   font-weight: bolder;
   font-style: normal;
 }
@@ -156,30 +158,28 @@
 }
 
 @font-face {
-  font-family: 'diesiseis';
+  font-family: 'dieciseis';
   src: url('assets/fonts/16.ttf');
   font-weight: bolder;
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: 'diesisiete';
+  font-family: 'diecisiete';
   src: url('assets/fonts/17.ttf');
   font-weight: bolder;
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: 'diesiocho';
-  src: url('assets/fonts/23.ttf');
+  font-family: 'dieciocho';
+  src: url('assets/fonts/18.ttf');
   font-weight: bolder;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'diesinueve';
+  font-family: 'diecinueve';
   src: url('assets/fonts/19.ttf');
   font-weight: bolder;
   font-style: normal;
@@ -220,6 +220,167 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'veinticinco';
+  src: url('assets/fonts/25.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'veintiseis';
+  src: url('assets/fonts/26.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'veintisiete';
+  src: url('assets/fonts/27.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'veintiocho';
+  src: url('assets/fonts/28.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'veintinueve';
+  src: url('assets/fonts/29.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treinta';
+  src: url('assets/fonts/30.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintayuno';
+  src: url('assets/fonts/31.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaydos';
+  src: url('assets/fonts/32.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaytres';
+  src: url('assets/fonts/33.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaycuatro';
+  src: url('assets/fonts/34.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaycinco';
+  src: url('assets/fonts/35.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintayseis';
+  src: url('assets/fonts/36.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaysiete';
+  src: url('assets/fonts/37.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintayocho';
+  src: url('assets/fonts/38.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'treintaynueve';
+  src: url('assets/fonts/39.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarenta';
+  src: url('assets/fonts/40.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentayuno';
+  src: url('assets/fonts/41.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentaydos';
+  src: url('assets/fonts/42.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'cuarentaytres';
+  src: url('assets/fonts/43.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentaycuatro';
+  src: url('assets/fonts/44.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentaycinco';
+  src: url('assets/fonts/45.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentayseis';
+  src: url('assets/fonts/46.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cuarentaysiete';
+  src: url('assets/fonts/47.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
 
 
 // @font-face {

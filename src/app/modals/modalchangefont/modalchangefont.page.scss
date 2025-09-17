@@ -1,7 +1,58 @@
-// Opcional: destacar la animación seleccionada
 .seleccionada {
-  border: 3px solid #3880ff;
-  border-radius: 20px;
+  border: 2px solid #1e90ff; // azul intermedio
+  border-radius: 10px;
+  padding: 4px;
+  background: rgba(30, 144, 255, 0.08); // ligero fondo azul
 }
 
+.fuentes-container {
+  position: relative;
+  background-color: #e4e6e9; // fondo azul muy claro
+  max-height: 70vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  -webkit-overflow-scrolling: auto;
+  padding-right: 20px;
 
+  // Scrollbar WebKit
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e0f0ff; // azul claro
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1e90ff, #0057d9);
+    border-radius: 8px;
+    border: 3px solid #e0f0ff;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0066ff, #003366);
+  }
+
+  // Firefox
+  scrollbar-width: thin;
+  scrollbar-color: #1e90ff #e0f0ff;
+
+  ion-text {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// Scroll artificial
+.fake-scroll {
+  position: absolute;
+  right: 4px;
+  width: 6px;
+  background: linear-gradient(180deg, #1e90ff, #0057d9);
+  border-radius: 3px;
+  opacity: 0.9;
+  transition: top 0.1s linear, height 0.1s linear;
+}
