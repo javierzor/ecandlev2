@@ -153,7 +153,7 @@ export class Step3Page {
 
 
   subirpagina() {
-    if (this.pagina < 3) {
+    if (this.pagina < 4) {
       this.pagina++;
       this.revelarProgresivamente(); // Reiniciar animaciones visibles
 
@@ -179,7 +179,7 @@ export class Step3Page {
 
     let i = startIndex;
     const intervalo = setInterval(() => {
-      if (i <= endIndex && i <= 21) {
+      if (i <= endIndex && i <= 27) {
         this.visibleAnimations.push(i.toString());
         i++;
       } else {

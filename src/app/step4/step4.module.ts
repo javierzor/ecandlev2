@@ -29,6 +29,12 @@ import { AnimaciondiesiochocompComponent } from "../components/animaciondiesioch
 import { AnimaciondiesinuevecompComponent } from "../components/animaciondiesinuevecomp/animaciondiesinuevecomp.component";
 import { AnimacionveintecompComponent } from "../components/animacionveintecomp/animacionveintecomp.component";
 import { AnimacionveintiunocompComponent } from "../components/animacionveintiunocomp/animacionveintiunocomp.component";
+import { AnimacionveintidoscompComponent } from '../components/animacionveintidoscomp/animacionveintidoscomp.component';
+import { AnimacionveintitrescompComponent } from '../components/animacionveintitrescomp/animacionveintitrescomp.component';
+import { AnimacionveinticuatrocompComponent } from '../components/animacionveinticuatrocomp/animacionveinticuatrocomp.component';
+import { AnimacionveinticincocompComponent } from '../components/animacionveinticincocomp/animacionveinticincocomp.component';
+import { AnimacionveintiseiscompComponent } from '../components/animacionveintiseiscomp/animacionveintiseiscomp.component';
+import { AnimacionveintisietecompComponent } from '../components/animacionveintisietecomp/animacionveintisietecomp.component';
 
 @NgModule({
   imports: [
@@ -57,7 +63,14 @@ import { AnimacionveintiunocompComponent } from "../components/animacionveintiun
     AnimaciondiesiochocompComponent,
     AnimaciondiesinuevecompComponent,
     AnimacionveintecompComponent,
-    AnimacionveintiunocompComponent
+    AnimacionveintiunocompComponent,
+    AnimacionveintidoscompComponent,
+    AnimacionveintitrescompComponent,
+    AnimacionveinticuatrocompComponent,
+    AnimacionveinticincocompComponent,
+    AnimacionveintiseiscompComponent,
+    AnimacionveintisietecompComponent,
+
 
 
 

@@ -2,25 +2,26 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
-
 @Component({
   selector: 'app-animacionveintitrescomp',
-  templateUrl: './animacionveintitrescomp.page.html',
-  styleUrls: ['./animacionveintitrescomp.page.scss'],
+  templateUrl: './animacionveintitrescomp.component.html',
+  styleUrls: ['./animacionveintitrescomp.component.scss'],
+  imports: [CommonModule,]
+
 })
-export class AnimacionveintitrescompPage implements OnInit {
+export class AnimacionveintitrescompComponent implements OnInit {
 
 
-   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
   videoSrc = '';
   age = '';
   birthdayText = '';
   name = '';
 
-ageOffset = 0;
-birthdayOffset = 0;
-nameOffset = 0;
+  ageOffset = 0;
+  birthdayOffset = 0;
+  nameOffset = 0;
 
 
   private interactionHandler: () => void;
@@ -37,6 +38,9 @@ nameOffset = 0;
   }
 
   ngAfterViewInit(): void {
+    //silenciamos el video
+    this.bgVideoRef.nativeElement.muted = true;
+
     const videoEl = this.bgVideoRef.nativeElement;
 
     videoEl.addEventListener('canplay', () => {
@@ -87,23 +91,21 @@ nameOffset = 0;
     }
   }
 
-moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
-  const delta = direction === 'up' ? -10 : 10;
+  moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
+    const delta = direction === 'up' ? -10 : 10;
 
-  switch (type) {
-    case 'age':
-      this.ageOffset += delta;
-      break;
-    case 'birthday':
-      this.birthdayOffset += delta;
-      break;
-    case 'name':
-      this.nameOffset += delta;
-      break;
+    switch (type) {
+      case 'age':
+        this.ageOffset += delta;
+        break;
+      case 'birthday':
+        this.birthdayOffset += delta;
+        break;
+      case 'name':
+        this.nameOffset += delta;
+        break;
+    }
   }
-}
-
-
 
 
 }

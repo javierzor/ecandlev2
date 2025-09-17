@@ -2,25 +2,26 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
-
 @Component({
-  selector: 'app-animacionveintiseiscomp',
-  templateUrl: './animacionveintiseiscomp.page.html',
-  styleUrls: ['./animacionveintiseiscomp.page.scss'],
+  selector: 'app-animacionveinticuatrocomp',
+  templateUrl: './animacionveinticuatrocomp.component.html',
+  styleUrls: ['./animacionveinticuatrocomp.component.scss'],
+  imports: [CommonModule,]
+
 })
-export class AnimacionveintiseiscompPage implements OnInit {
+export class AnimacionveinticuatrocompComponent implements OnInit {
 
 
-   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
   videoSrc = '';
   age = '';
   birthdayText = '';
   name = '';
 
-ageOffset = 0;
-birthdayOffset = 0;
-nameOffset = 0;
+  ageOffset = 0;
+  birthdayOffset = 0;
+  nameOffset = 0;
 
 
   private interactionHandler: () => void;
@@ -29,7 +30,7 @@ nameOffset = 0;
 
   ngOnInit(): void {
     const id = this.storageService.data['animacion_seleccionada'] || '1';
-    this.videoSrc = `assets/26.mp4`;
+    this.videoSrc = `assets/24.mp4`;
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
@@ -37,6 +38,8 @@ nameOffset = 0;
   }
 
   ngAfterViewInit(): void {
+    //silenciamos el video
+    this.bgVideoRef.nativeElement.muted = true;
     const videoEl = this.bgVideoRef.nativeElement;
 
     videoEl.addEventListener('canplay', () => {
@@ -87,23 +90,21 @@ nameOffset = 0;
     }
   }
 
-moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
-  const delta = direction === 'up' ? -10 : 10;
+  moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
+    const delta = direction === 'up' ? -10 : 10;
 
-  switch (type) {
-    case 'age':
-      this.ageOffset += delta;
-      break;
-    case 'birthday':
-      this.birthdayOffset += delta;
-      break;
-    case 'name':
-      this.nameOffset += delta;
-      break;
+    switch (type) {
+      case 'age':
+        this.ageOffset += delta;
+        break;
+      case 'birthday':
+        this.birthdayOffset += delta;
+        break;
+      case 'name':
+        this.nameOffset += delta;
+        break;
+    }
   }
-}
-
-
 
 
 }

@@ -1,5 +1,5 @@
 <div class="video-bg-wrapper" (click)="playVideo()">
-  <video #bgVideo class="background-video" autoplay loop muted playsinline [attr.src]="videoSrc">
+  <video #bgVideo class="background-video" autoplay loop muted [muted]="true" playsinline [attr.src]="videoSrc">
   </video>
 
   <div class="overlay-content" [style.Zoom]="'' + storageService.zoom_especial_en_vista + ''">

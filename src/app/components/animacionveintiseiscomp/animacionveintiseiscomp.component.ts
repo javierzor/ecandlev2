@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
-
 @Component({
-  selector: 'app-animacionveintisietecomp',
-  templateUrl: './animacionveintisietecomp.page.html',
-  styleUrls: ['./animacionveintisietecomp.page.scss'],
-})
-export class AnimacionveintisietecompPage implements OnInit {
+  selector: 'app-animacionveintiseiscomp',
+  templateUrl: './animacionveintiseiscomp.component.html',
+  styleUrls: ['./animacionveintiseiscomp.component.scss'],
+      imports:[		CommonModule,]
 
+})
+export class AnimacionveintiseiscompComponent  implements OnInit {
 
 
    @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
@@ -30,7 +30,7 @@ nameOffset = 0;
 
   ngOnInit(): void {
     const id = this.storageService.data['animacion_seleccionada'] || '1';
-    this.videoSrc = `assets/27.mp4`;
+    this.videoSrc = `assets/26.mp4`;
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
@@ -103,8 +103,6 @@ moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
       break;
   }
 }
-
-
 
 
 }

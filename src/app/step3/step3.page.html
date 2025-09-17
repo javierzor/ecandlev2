@@ -203,7 +203,56 @@
           </div>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('22')" [ngClass]="{ 'seleccionada': seleccionada === '22' }">
+          <div class="anim-wrapper">
+            <app-animacionveintidoscomp *ngIf="visibleAnimations.includes('22')"></app-animacionveintidoscomp>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('23')" [ngClass]="{ 'seleccionada': seleccionada === '23' }">
+          <div class="anim-wrapper">
+            <app-animacionveintitrescomp *ngIf="visibleAnimations.includes('23')"></app-animacionveintitrescomp>
+          </div>
+        </ion-col>
+      </ion-row>
+
     </ng-container>
+
+    <ng-container *ngIf="pagina===4">
+
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('24')" [ngClass]="{ 'seleccionada': seleccionada === '24' }">
+          <div class="anim-wrapper">
+            <!-- <app-animacionveinticuatrocomp *ngIf="visibleAnimations.includes('24')"></app-animacionveinticuatrocomp> -->
+            <app-animacionveinticuatrocomp ></app-animacionveinticuatrocomp>
+
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('25')" [ngClass]="{ 'seleccionada': seleccionada === '25' }">
+          <div class="anim-wrapper">
+            <!-- <app-animacionveinticincocomp *ngIf="visibleAnimations.includes('25')"></app-animacionveinticincocomp> -->
+            <app-animacionveinticincocomp ></app-animacionveinticincocomp>
+
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" (click)="seleccionar_animacion('26')" [ngClass]="{ 'seleccionada': seleccionada === '26' }">
+          <div class="anim-wrapper">
+            <!-- <app-animacionveintiseiscomp *ngIf="visibleAnimations.includes('26')"></app-animacionveintiseiscomp> -->
+            <app-animacionveintiseiscomp ></app-animacionveintiseiscomp>
+
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ng-container>
+
+
   </ion-grid>
   <ion-grid>
   </ion-grid>
@@ -213,10 +262,10 @@
     <ion-button (click)="bajarpagina()" *ngIf="pagina>1">
       ◀ {{ pagina -1}}
     </ion-button>
-    Página {{ pagina }} / 3
-    <ion-button (click)="subirpagina()"  *ngIf="pagina<3">
+    Página {{ pagina }} / 4
+    <ion-button (click)="subirpagina()" *ngIf="pagina<4">
       {{ pagina +1}} ▶
-    </ion-button> 
+    </ion-button>
   </div>
 
 </ion-content>
@@ -227,22 +276,25 @@
 
 
   <div style="text-align: center; margin-top: 20px;">
-      <ion-button style="margin-right:10px" [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()" fill="outline">
-        <ion-icon size="small" name="text-outline"></ion-icon>
+    <ion-button style="margin-right:10px" [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changefont()"
+      fill="outline">
+      <ion-icon size="small" name="text-outline"></ion-icon>
 
-      </ion-button>
+    </ion-button>
 
-            <ion-button [style.BackgroundColor]="inverted_color_jeje" [disabled]="esperar_click_cambiar_fuente" size="small" (click)="changecolorfont()" fill="outline">
-        
-              <a [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">A</a>
-              
+    <ion-button [style.BackgroundColor]="inverted_color_jeje" [disabled]="esperar_click_cambiar_fuente" size="small"
+      (click)="changecolorfont()" fill="outline">
 
-      </ion-button>
-    
+      <a
+        [style.Color]="this.storageService.data['font_color_dinamico'] ? this.storageService.data['font_color_dinamico'] : '#FFFFFF'">A</a>
+
+
+    </ion-button>
+
     <ion-button (click)="atras()">
       ◀ Anterior
     </ion-button>
-    
+
     <ion-button (click)="selectAnimation()">
       Siguiente ▶
     </ion-button>

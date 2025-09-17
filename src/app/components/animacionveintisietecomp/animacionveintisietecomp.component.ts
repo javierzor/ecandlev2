@@ -2,26 +2,26 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { StorageService } from 'src/app/services/storage.service';
 
-
 @Component({
-  selector: 'app-animacionveinticincocomp',
-  templateUrl: './animacionveinticincocomp.page.html',
-  styleUrls: ['./animacionveinticincocomp.page.scss'],
+  selector: 'app-animacionveintisietecomp',
+  templateUrl: './animacionveintisietecomp.component.html',
+  styleUrls: ['./animacionveintisietecomp.component.scss'],
+      imports:[		CommonModule,]
+
 })
-export class AnimacionveinticincocompPage implements OnInit {
+export class AnimacionveintisietecompComponent implements OnInit {
 
 
-
-   @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
   videoSrc = '';
   age = '';
   birthdayText = '';
   name = '';
 
-ageOffset = 0;
-birthdayOffset = 0;
-nameOffset = 0;
+  ageOffset = 0;
+  birthdayOffset = 0;
+  nameOffset = 0;
 
 
   private interactionHandler: () => void;
@@ -30,7 +30,7 @@ nameOffset = 0;
 
   ngOnInit(): void {
     const id = this.storageService.data['animacion_seleccionada'] || '1';
-    this.videoSrc = `assets/25.mp4`;
+    this.videoSrc = `assets/27.mp4`;
 
     this.age = this.storageService.data['Age'] || '00';
     this.birthdayText = this.storageService.data['birthdayText'] || 'Feliz Cumpleaños';
@@ -88,24 +88,21 @@ nameOffset = 0;
     }
   }
 
-moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
-  const delta = direction === 'up' ? -10 : 10;
+  moveText(type: 'age' | 'birthday' | 'name', direction: 'up' | 'down') {
+    const delta = direction === 'up' ? -10 : 10;
 
-  switch (type) {
-    case 'age':
-      this.ageOffset += delta;
-      break;
-    case 'birthday':
-      this.birthdayOffset += delta;
-      break;
-    case 'name':
-      this.nameOffset += delta;
-      break;
+    switch (type) {
+      case 'age':
+        this.ageOffset += delta;
+        break;
+      case 'birthday':
+        this.birthdayOffset += delta;
+        break;
+      case 'name':
+        this.nameOffset += delta;
+        break;
+    }
   }
-}
-
-
-
 
 
 }

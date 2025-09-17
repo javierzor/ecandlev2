@@ -109,10 +109,29 @@
         <app-animacionveintecomp></app-animacionveintecomp>
 
     </div>
+
     <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='21'">
-
         <app-animacionveintiunocomp></app-animacionveintiunocomp>
+    </div>
 
+
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='22'">
+        <app-animacionveintidoscomp></app-animacionveintidoscomp>
+    </div>
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='23'">
+        <app-animacionveintitrescomp></app-animacionveintitrescomp>
+    </div>
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='24'">
+        <app-animacionveinticuatrocomp></app-animacionveinticuatrocomp>
+    </div>
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='25'">
+        <app-animacionveinticincocomp></app-animacionveinticincocomp>
+    </div>
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='26'">
+        <app-animacionveintiseiscomp></app-animacionveintiseiscomp>
+    </div>
+    <div class="contenedoranimacion" *ngIf="this.storageService.data['animacion_seleccionada']==='27'">
+        <app-animacionveintisietecomp></app-animacionveintisietecomp>
     </div>
 
 
@@ -135,11 +154,11 @@
         <ion-icon size="small" name="remove"></ion-icon>
     </ion-fab-button>
 
-    
-        <ion-fab-button (click)="storageService.subirZoomNombre()" size="small"
-            style="padding:0; position:absolute;right:70px;bottom:1px;z-index: 222;" color="transparent">
-            <ion-icon size="small" name="add"></ion-icon>
-        </ion-fab-button>
+
+    <ion-fab-button (click)="storageService.subirZoomNombre()" size="small"
+        style="padding:0; position:absolute;right:70px;bottom:1px;z-index: 222;" color="transparent">
+        <ion-icon size="small" name="add"></ion-icon>
+    </ion-fab-button>
 
     <ion-fab-button (click)="storageService.subirZoomBirthdayText()" size="small"
         style="padding:0; position:absolute;right:40px;bottom:1px;z-index: 222;" color="transparent">
