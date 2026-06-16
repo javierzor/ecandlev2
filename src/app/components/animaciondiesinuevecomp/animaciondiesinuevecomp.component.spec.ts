@@ -18,7 +18,7 @@ describe('AnimaciondiesinuevecompComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('shouldjjjj create', () => {
     expect(component).toBeTruthy();
   });
 });
