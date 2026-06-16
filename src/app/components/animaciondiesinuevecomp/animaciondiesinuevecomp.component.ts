@@ -11,7 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class AnimaciondiesinuevecompComponent  implements OnInit {
 
-  @ViewChild('bgVideo', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
+  @ViewChild('bgVideo 222222', { static: false }) bgVideoRef!: ElementRef<HTMLVideoElement>;
 
   videoSrc = '';
   age = '';
